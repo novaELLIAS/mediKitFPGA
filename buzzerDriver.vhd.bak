@@ -1,0 +1,50 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+entity buzzer is
+	port(
+		clk_base:in  std_logic;
+		clk_ctr: in  std_logic;
+		state_in:in  std_logic_vector(3 downto 0);
+		buzz_out:out std_logic:='0'
+);
+end buzzer;
+
+architecture behave of buzzer is
+signal count:integer range 0 to 1;
+signal buz0: std_logic:='0';
+begin
+p1:process(clk_ctr) -- 2f switch
+begin
+	if(clk_ctr'event and clk_ctr='1')then
+		if(count=1)then
+			count<=0;
+		else count<=count+1;
+		end if;
+	end if;
+end process p1;
+
+p2:process(clk_base) -- f division
+variable c1:integer range 0 to 1:=0;
+begin
+	if(clk_base'event and clk_base='1')then
+		if c1=1 then
+			buz0<=not buz0;c1:=0;
+		else c1:=c1+1;
+		end if;
+	end if;
+end process p2;
+
+p3:process(state_in)
+begin
+	if(state_in="0110" or state_in="0111" or state_in="1000")then
+		case count is
+			when 0=>buzz_out<=clk_base;
+			when 1=>buzz_out<=buz0;
+			when others=>null;
+		end case;
+	else buzz_out<='0';
+	end if;
+end process p3;
+
+end behave;

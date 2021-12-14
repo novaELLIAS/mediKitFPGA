@@ -1,0 +1,11 @@
+Fitter Status : Successful - Tue Dec 14 20:00:20 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : mediKit
+Top-level Entity Name : mediKit
+Family : MAX II
+Device : EPM1270T144C5
+Timing Models : Final
+Total logic elements : 1,183 / 1,270 ( 93 % )
+Total pins : 83 / 116 ( 72 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

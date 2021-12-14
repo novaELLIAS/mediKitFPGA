@@ -1,0 +1,105 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'clock'
+Slack : -22.481
+TNS   : -3328.999
+
+Type  : Setup 'freqDiv_1000:inst23|clktmp'
+Slack : -5.888
+TNS   : -34.706
+
+Type  : Setup 'freqDiv_250:inst28|clktmp'
+Slack : -4.444
+TNS   : -94.806
+
+Type  : Setup 'main:inst14|cur_state[0]'
+Slack : -2.100
+TNS   : -16.073
+
+Type  : Setup 'freqDiv_500:inst26|clktmp'
+Slack : -1.245
+TNS   : -1.245
+
+Type  : Setup 'freqDiv_125:inst29|clktmp'
+Slack : -1.223
+TNS   : -1.223
+
+Type  : Hold 'main:inst14|cur_state[0]'
+Slack : -6.968
+TNS   : -29.012
+
+Type  : Hold 'clock'
+Slack : -2.297
+TNS   : -10.715
+
+Type  : Hold 'freqDiv_250:inst28|clktmp'
+Slack : -0.493
+TNS   : -0.493
+
+Type  : Hold 'freqDiv_1000:inst23|clktmp'
+Slack : 0.709
+TNS   : 0.000
+
+Type  : Hold 'freqDiv_125:inst29|clktmp'
+Slack : 1.669
+TNS   : 0.000
+
+Type  : Hold 'freqDiv_500:inst26|clktmp'
+Slack : 1.691
+TNS   : 0.000
+
+Type  : Recovery 'freqDiv_1000:inst23|clktmp'
+Slack : -8.677
+TNS   : -52.062
+
+Type  : Recovery 'clock'
+Slack : -3.254
+TNS   : -23.873
+
+Type  : Recovery 'main:inst14|cur_state[0]'
+Slack : -0.269
+TNS   : -0.443
+
+Type  : Removal 'main:inst14|cur_state[0]'
+Slack : -5.668
+TNS   : -16.617
+
+Type  : Removal 'clock'
+Slack : -1.055
+TNS   : -1.055
+
+Type  : Removal 'freqDiv_1000:inst23|clktmp'
+Slack : 3.467
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clock'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'main:inst14|cur_state[0]'
+Slack : -0.728
+TNS   : -24.752
+
+Type  : Minimum Pulse Width 'freqDiv_1000:inst23|clktmp'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'freqDiv_125:inst29|clktmp'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'freqDiv_20:inst4|clktmp'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'freqDiv_250:inst28|clktmp'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'freqDiv_500:inst26|clktmp'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------

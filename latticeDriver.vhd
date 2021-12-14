@@ -1,0 +1,263 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_unsigned.all;
+use IEEE.std_logic_arith.all;
+
+entity latticeDriver is
+
+port(
+	clk :in std_logic;								            -- original clock @ 1kHz
+	clk_div1000 : in  std_logic;							      -- divided  clock @ 1Hz
+	clk_div500 :  in  std_logic;							      -- divided  clock @ 2Hz
+	clk_div250 :  in  std_logic;							      -- divided  clock @ 4Hz
+	clk_div125 :  in  std_logic;							      -- divided  clock @ 8Hz
+	state_in :    in  std_logic_vector (3 downto 0);	   -- now status
+	col_r :       out std_logic_vector (7 downto 0);   	-- R LED control
+	col_g :       out std_logic_vector (7 downto 0);   	-- G LED control
+	row :         out std_logic_vector (7 downto 0) 		-- LED neg port control
+);
+
+end latticeDriver;
+
+architecture a of latticeDriver is
+
+signal sel2 :   std_logic_vector(0 downto 0); 	         -- signal::counter   % 2
+signal sel2_2 : std_logic_vector(0 downto 0);            -- signal::counter_2 % 2
+signal sel2_4 : std_logic_vector(0 downto 0); 	         -- signal::counter_4 % 2
+signal sel2_8 : std_logic_vector(0 downto 0);            -- signal::counter_8 % 2
+signal sel8 :   std_logic_vector(2 downto 0); 	         -- signal::counter   % 8
+
+begin
+
+p1:process(clk)										            -- counter (%8)
+begin
+	if (clk'event and clk='1') then 
+		sel8 <= sel8 + 1;
+	end if;
+end process p1;
+
+p2:process(clk_div1000)                                  -- counter (%2, @1Hz, out 0.5Hz)
+begin
+	if (clk_div1000'event and clk_div1000='1')then 
+		sel2 <= sel2 + 1;
+	end if; 
+end process p2;
+
+p3:process(clk_div500)								            -- counter_2 (%2, @2Hz, out 1Hz)
+begin
+	if (clk_div500'event and clk_div500='1')then 
+		sel2_2 <= sel2_2 + 1;
+	end if; 
+end process p3;
+
+p4:process(clk_div250)								            -- counter_4 (%2, @4Hz, out 2Hz)
+begin
+	if (clk_div250'event and clk_div250='1')then 
+		sel2_4 <= sel2_4 + 1;
+	end if; 
+end process p4;
+
+p5:process(clk_div125)								            -- counter_8 (%2, @8Hz, out 4Hz)
+begin
+	if (clk_div125'event and clk_div125='1')then 
+		sel2_8 <= sel2_8 + 1;
+	end if; 
+end process p5;
+
+p6:process(state_in,sel2,sel8)
+
+-- %8: reflush row
+-- %7: select  pos
+
+-- state machine status description:
+-- standard group:
+-- 0010 :  2 : set first  time for R box
+-- 0011 :  3 : set first  time for B box
+-- 0100 :  4 : set first  time for Y box
+-- 1010 : 10 : set second time for R box
+-- 1011 : 11 : set second time for B box
+-- 1100 : 12 : set second time for Y box
+-- 0101 :  5 : count down start
+-- 0110 :  6 : R box alert triggered
+-- 0111 :  7 : G box alert triggered
+-- 1000 :  8 : Y box alert triggered
+-- specialized group:
+-- 0000 :  0 : power off
+-- 0001 :  1 : power on
+-- 1111 : 31 : set finish
+
+begin
+if (state_in="0000") then
+-- turn off all indicators
+-- state 0000 : 0 : power off
+case sel8 is
+	when O"7" => col_r <= "00000000"; col_g <= "00000000"; row<= "01111111";
+	when O"6" => col_r <= "00000000"; col_g <= "00000000"; row<= "10111111"; 
+	when O"5" => col_r <= "00000000"; col_g <= "00000000"; row<= "11011111"; 
+	when O"4" => col_r <= "00000000"; col_g <= "00000000"; row<= "11101111"; 
+	when O"3" => col_r <= "00000000"; col_g <= "00000000"; row<= "11110111"; 
+	when O"2" => col_r <= "00000000"; col_g <= "00000000"; row<= "11111011"; 
+	when O"1" => col_r <= "00000000"; col_g <= "00000000"; row<= "11111101"; 
+	when O"0" => col_r <= "00000000"; col_g <= "00000000"; row<= "11111110"; 
+end case;
+
+elsif (state_in="0001" OR state_in="0101" OR state_in="1111") then
+-- three indicators always on
+-- state 0001 :  1 : power on, 3 indicators always on
+-- state 0101 :  5 : count down start
+-- state 1111 : 31 : set finish
+case sel8 is
+	when O"7" => col_r <= "00000000"; col_g <= "00000000"; row <= "01111111";
+	when O"6" => col_r <= "00000000"; col_g <= "00000000"; row <= "10111111"; 
+	when O"5" => col_r <= "00000000"; col_g <= "00000000"; row <= "11011111"; 
+	when O"4" => col_r <= "11000011"; col_g <= "11011000"; row <= "11101111"; 
+	when O"3" => col_r <= "11000011"; col_g <= "11011000"; row <= "11110111"; 
+	when O"2" => col_r <= "00000000"; col_g <= "00000000"; row <= "11111011"; 
+	when O"1" => col_r <= "00000000"; col_g <= "00000000"; row <= "11111101"; 
+	when O"0" => col_r <= "00000000"; col_g <= "00000000"; row <= "11111110"; 
+end case;
+
+elsif (state_in="0010" or state_in="1010") then
+-- indicator r blink @ 
+	case sel2_2 is
+		when "0" => case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="11000011";col_g<="11011000";row<="11101111"; 
+			when O"3" =>col_r<="11000011";col_g<="11011000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110";
+						end case;
+		when "1" => case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="11000000";col_g<="11011000";row<="11101111"; 
+			when O"3" =>col_r<="11000000";col_g<="11011000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110"; 
+						end case;
+		end case;
+elsif (state_in="0011" or state_in="1011") then
+	case sel2_2 is
+		when "0"=> case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="11000011";col_g<="11011000";row<="11101111"; 
+			when O"3" =>col_r<="11000011";col_g<="11011000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110"; 
+						end case;
+		when "1"=> case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="11000011";col_g<="11000000";row<="11101111"; 
+			when O"3" =>col_r<="11000011";col_g<="11000000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110";  
+						end case;
+		end case;
+elsif (state_in="0100" or state_in="1100") then
+	case sel2_2 is
+		when "0"=> case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="11000011";col_g<="11011000";row<="11101111"; 
+			when O"3" =>col_r<="11000011";col_g<="11011000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110"; 
+						end case;
+		when "1"=> case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="00000011";col_g<="00011000";row<="11101111"; 
+			when O"3" =>col_r<="00000011";col_g<="00011000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110"; 
+						end case;
+		end case;
+elsif (state_in="0110") then
+	case sel2_8 is
+		when "0"=> case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="11000011";col_g<="11011000";row<="11101111"; 
+			when O"3" =>col_r<="11000011";col_g<="11011000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110";
+						end case;
+		when "1"=> case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="11000000";col_g<="11011000";row<="11101111"; 
+			when O"3" =>col_r<="11000000";col_g<="11011000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110"; 
+						end case;
+		end case;
+
+elsif (state_in="0111") then
+	case sel2_8 is
+		when "0"=> case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="11000011";col_g<="11011000";row<="11101111"; 
+			when O"3" =>col_r<="11000011";col_g<="11011000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110"; 
+						end case;
+		when "1"=> case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="11000011";col_g<="11000000";row<="11101111"; 
+			when O"3" =>col_r<="11000011";col_g<="11000000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110";  
+						end case;
+		end case;
+elsif (state_in="1000") then
+	case sel2_8 is
+		when "0"=> case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="11000011";col_g<="11011000";row<="11101111"; 
+			when O"3" =>col_r<="11000011";col_g<="11011000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110"; 
+						end case;
+		when "1"=> case sel8 is
+			when O"7" =>col_r<="00000000";col_g<="00000000";row<="01111111";
+			when O"6" =>col_r<="00000000";col_g<="00000000";row<="10111111"; 
+			when O"5" =>col_r<="00000000";col_g<="00000000";row<="11011111"; 
+			when O"4" =>col_r<="00000011";col_g<="00011000";row<="11101111"; 
+			when O"3" =>col_r<="00000011";col_g<="00011000";row<="11110111"; 
+			when O"2" =>col_r<="00000000";col_g<="00000000";row<="11111011"; 
+			when O"1" =>col_r<="00000000";col_g<="00000000";row<="11111101"; 
+			when O"0" =>col_r<="00000000";col_g<="00000000";row<="11111110"; 
+						end case;
+		end case;
+end if;
+end process p6; 
+
+end a;
