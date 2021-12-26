@@ -1,5 +1,5 @@
 Fitter report for mediKit
-Tue Dec 14 20:00:20 2021
+Sun Dec 26 19:30:29 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -58,7 +58,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------+
 ; Fitter Summary                                                      ;
 +-----------------------+---------------------------------------------+
-; Fitter Status         ; Successful - Tue Dec 14 20:00:20 2021       ;
+; Fitter Status         ; Successful - Sun Dec 26 19:30:29 2021       ;
 ; Quartus Prime Version ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name         ; mediKit                                     ;
 ; Top-level Entity Name ; mediKit                                     ;
@@ -129,18 +129,18 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.14        ;
+; Average used               ; 1.15        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.3%      ;
-;     Processor 3            ;   2.0%      ;
-;     Processor 4            ;   2.0%      ;
-;     Processor 5            ;   1.9%      ;
-;     Processor 6            ;   1.9%      ;
-;     Processor 7            ;   1.9%      ;
-;     Processor 8            ;   1.9%      ;
+;     Processor 2            ;   2.4%      ;
+;     Processor 3            ;   2.1%      ;
+;     Processor 4            ;   2.1%      ;
+;     Processor 5            ;   2.1%      ;
+;     Processor 6            ;   2.0%      ;
+;     Processor 7            ;   2.0%      ;
+;     Processor 8            ;   2.0%      ;
 +----------------------------+-------------+
 
 
@@ -678,13 +678,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; latticeDriver:inst30|col_r[5]~11           ; LC_X10_Y4_N0 ; 8       ; Latch enable ; yes    ; Global Clock         ; GCLK2            ;
 ; latticeDriver:inst30|col_r[7]~12           ; LC_X8_Y6_N5  ; 4       ; Latch enable ; no     ; --                   ; --               ;
 ; latticeDriver:inst30|sel8[0]               ; LC_X8_Y5_N1  ; 30      ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|count_b0[0]                    ; LC_X5_Y4_N0  ; 34      ; Async. clear ; no     ; --                   ; --               ;
-; main:inst14|count_u1[1]~11                 ; LC_X12_Y4_N0 ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
-; main:inst14|count_u1[1]~16                 ; LC_X13_Y5_N9 ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|count_u2[2]~10                 ; LC_X12_Y4_N5 ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
-; main:inst14|count_u2[2]~14                 ; LC_X13_Y7_N7 ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|count_u3[1]~10                 ; LC_X12_Y4_N7 ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
-; main:inst14|count_u3[1]~14                 ; LC_X13_Y4_N7 ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|cnt_b0[0]                      ; LC_X5_Y4_N0  ; 34      ; Async. clear ; no     ; --                   ; --               ;
+; main:inst14|cnt_u1[1]~11                   ; LC_X12_Y4_N0 ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
+; main:inst14|cnt_u1[1]~16                   ; LC_X13_Y5_N9 ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|cnt_u2[2]~10                   ; LC_X12_Y4_N5 ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
+; main:inst14|cnt_u2[2]~14                   ; LC_X13_Y7_N7 ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|cnt_u3[1]~10                   ; LC_X12_Y4_N7 ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
+; main:inst14|cnt_u3[1]~14                   ; LC_X13_Y4_N7 ; 5       ; Clock enable ; no     ; --                   ; --               ;
 ; main:inst14|gs1[1]~0                       ; LC_X9_Y5_N0  ; 13      ; Clock enable ; no     ; --                   ; --               ;
 ; main:inst14|gs2[1]~0                       ; LC_X8_Y8_N5  ; 13      ; Clock enable ; no     ; --                   ; --               ;
 ; main:inst14|rs1[2]~0                       ; LC_X11_Y6_N7 ; 13      ; Clock enable ; no     ; --                   ; --               ;
@@ -902,13 +902,13 @@ This will disable optimization of problematic paths and expose them for further 
 ; main:inst14|cur_state[0] ; latticeDriver:inst30|col_g[7] ; 7.683             ;
 ; main:inst14|cur_state[1] ; latticeDriver:inst30|col_g[7] ; 7.683             ;
 ; main:inst14|cur_state[2] ; latticeDriver:inst30|col_g[7] ; 7.683             ;
-; clock                    ; main:inst14|count_b2          ; 1.579             ;
-; keyInput:inst|resetmp6   ; main:inst14|count_b2          ; 0.563             ;
-; keyInput:inst|resetmp5   ; main:inst14|count_b2          ; 0.563             ;
-; keyInput:inst|resetmp10  ; main:inst14|count_b4[0]       ; 0.231             ;
-; keyInput:inst|resetmp9   ; main:inst14|count_b4[0]       ; 0.231             ;
-; keyInput:inst|resetmp4   ; main:inst14|count_b1[0]       ; 0.192             ;
-; keyInput:inst|resetmp3   ; main:inst14|count_b1[0]       ; 0.192             ;
+; clock                    ; main:inst14|cnt_b2            ; 1.579             ;
+; keyInput:inst|resetmp6   ; main:inst14|cnt_b2            ; 0.563             ;
+; keyInput:inst|resetmp5   ; main:inst14|cnt_b2            ; 0.563             ;
+; keyInput:inst|resetmp10  ; main:inst14|cnt_b4[0]         ; 0.231             ;
+; keyInput:inst|resetmp9   ; main:inst14|cnt_b4[0]         ; 0.231             ;
+; keyInput:inst|resetmp4   ; main:inst14|cnt_b1[0]         ; 0.192             ;
+; keyInput:inst|resetmp3   ; main:inst14|cnt_b1[0]         ; 0.192             ;
 ; keyInput:inst|resetmp8   ; main:inst14|temp1[2]          ; 0.033             ;
 ; keyInput:inst|resetmp7   ; main:inst14|temp1[2]          ; 0.033             ;
 +--------------------------+-------------------------------+-------------------+
@@ -973,21 +973,21 @@ Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:03
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 30% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 32% of the available device resources in the region that extends from location X0_Y0 to location X8_Y11
 Info (170202): The Fitter performed an Auto Fit compilation.  No optimizations were skipped because the design's timing and routability requirements required full optimization.
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.99 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
+Info (11888): Total time spent on timing analysis during the Fitter is 1.13 seconds.
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file D:/works/FPGA/mediKitFPGA/output_files/mediKit.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5777 megabytes
-    Info: Processing ended: Tue Dec 14 20:00:20 2021
+    Info: Peak virtual memory: 5775 megabytes
+    Info: Processing ended: Sun Dec 26 19:30:29 2021
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:17
+    Info: Total CPU time (on all processors): 00:00:18
 
 
 +----------------------------+

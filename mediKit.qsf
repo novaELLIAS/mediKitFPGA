@@ -68,7 +68,6 @@ set_global_assignment -name VHDL_FILE freqDiv_250.vhd
 set_global_assignment -name VHDL_FILE freqDiv_20.vhd
 set_global_assignment -name VHDL_FILE freqDiv_125.vhd
 set_global_assignment -name VHDL_FILE freqDiv_1000.vhd
-set_global_assignment -name VHDL_FILE freqDiv.vhd
 set_global_assignment -name VHDL_FILE buzzerDriver.vhd
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
 set_location_assignment PIN_61 -to btn0

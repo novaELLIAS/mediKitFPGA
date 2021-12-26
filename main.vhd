@@ -37,17 +37,17 @@ ENTITY main is
 END main;
 
 ARCHITECTURE behave of main is
-signal count_b0:integer range 0 to 15:=0;
-signal count_b1:integer range 0 to 2 :=0;
-signal count_b2:integer range 0 to 1 :=0;
-signal count_b4:integer range 0 to 2 :=0;
-signal count_b5:integer range 0 to 3 :=0;
-signal count_b6:integer range 0 to 1 :=0;
---signal count_un:integer range 0 to 999999:=0;
-signal count_u1:integer range 0 to 31:=0;
-signal count_u2:integer range 0 to 31:=0;
-signal count_u3:integer range 0 to 31:=0;
---signal count_un:std_logic_vector (6 downto 0):="000000";
+signal cnt_b0:integer range 0 to 15:=0;
+signal cnt_b1:integer range 0 to 2 :=0;
+signal cnt_b2:integer range 0 to 1 :=0;
+signal cnt_b4:integer range 0 to 2 :=0;
+signal cnt_b5:integer range 0 to 3 :=0;
+signal cnt_b6:integer range 0 to 1 :=0;
+--signal cnt_un:integer range 0 to 999999:=0;
+signal cnt_u1:integer range 0 to 31:=0;
+signal cnt_u2:integer range 0 to 31:=0;
+signal cnt_u3:integer range 0 to 31:=0;
+--signal cnt_un:std_logic_vector (6 downto 0):="000000";
 signal cur_state:std_logic_vector(3 downto 0):="0000";
 signal rs1:std_logic_vector(6 downto 0):="0000000";
 signal rs2:std_logic_vector(6 downto 0):="0000000";
@@ -64,79 +64,79 @@ signal yb2:std_logic_vector(6 downto 0):="0000000";
 signal temp1:std_logic_vector(3 downto 0):="0000";
 
 begin
- -- btn counter --
+ -- btn cnter --
 	process(b0)
 	begin
 	if(b0'event and b0 = '1')then
-	        if count_b0=15 then
-				count_b0<=0;
+	        if cnt_b0=15 then
+				cnt_b0<=0;
 			else
-			    count_b0<=count_b0+1;
+			    cnt_b0<=cnt_b0+1;
 			end if;	
 	end if;
 	end process;
 	
 	process(b1)
 	begin
-	if((count_b0 mod 2)=0) then
-			count_b1<=0;
+	if((cnt_b0 mod 2)=0) then
+			cnt_b1<=0;
 	elsif(b1'event and b1 = '1')then
-	        if count_b1=2 then
-				count_b1<=1;
+	        if cnt_b1=2 then
+				cnt_b1<=1;
 			else
-			    count_b1<=count_b1+1;
+			    cnt_b1<=cnt_b1+1;
 			end if;	
 	end if;
 	end process;
 	
 	process(b4)
 	begin
-	if((count_b0 mod 2)=0) then
-			count_b4<=0;
+	if((cnt_b0 mod 2)=0) then
+			cnt_b4<=0;
 	elsif(b4'event and b4 = '1')then
-	        if count_b4=2 then
-				count_b4<=1;
+	        if cnt_b4=2 then
+				cnt_b4<=1;
 			else
-			    count_b4<=count_b4+1;
+			    cnt_b4<=cnt_b4+1;
 			end if;	
 	end if;
 	end process;
 	
 	process(b5)
 	begin
-	if((count_b0 mod 2)=0) then
-			count_b5<=0;
+	if((cnt_b0 mod 2)=0) then
+			cnt_b5<=0;
 	elsif(b5'event and b5 = '1')then
-	        if count_b5=2 then
-				count_b5<=1;
+	        if cnt_b5=2 then
+				cnt_b5<=1;
 			else
-			    count_b5<=count_b5+1;
+			    cnt_b5<=cnt_b5+1;
 			end if;	
 	end if;
 	end process;
 	
 	process(b2)
 	begin
-	if((count_b0 mod 2)=0) then
-			count_b2<=0;
+	if((cnt_b0 mod 2)=0) then
+			cnt_b2<=0;
 	elsif(b2'event and b2 = '1')then
-	        if count_b2=1 then
-				count_b2<=0;
+	        if cnt_b2=1 then
+				cnt_b2<=0;
 			else
-			    count_b2<=count_b2+1;
+			    cnt_b2<=cnt_b2+1;
 			end if;	
 	end if;
 	end process;
 	
 	process(b6)
 	begin
-	if((count_b0 mod 2)=0) then
-			count_b6<=0;
+	if((cnt_b0 mod 2)=0) then
+			cnt_b6<=0;
 	elsif(b6'event and b6 = '1')then
-	        if count_b6=1 then
-				count_b6<=0;
+	        if cnt_b6=1 then
+				cnt_b6<=0;
 			else
-			    count_b6<=count_b6+1;
+			    cnt_b6<=cnt_b6+1;
 			end if;	
 	end if;
 	end process;
@@ -150,7 +150,7 @@ begin
 -- 1010 : 10 : set second time for R box
 -- 1011 : 11 : set second time for B box
 -- 1100 : 12 : set second time for Y box
--- 0101 :  5 : count down start
+-- 0101 :  5 : cnt down start
 -- 0110 :  6 : R box alert triggered
 -- 0111 :  7 : G box alert triggered
 -- 1000 :  8 : Y box alert triggered
@@ -160,66 +160,66 @@ begin
 -- 1111 : 31 : set finish
 
 
-process(cur_state,clkin,count_b0,count_b1,count_b2,nums,numb,b3)
+process(cur_state,clkin,cnt_b0,cnt_b1,cnt_b2,nums,numb,b3)
 begin
 	if(clkin'event and clkin='1')then
 		case cur_state is
 			when "0000"=>
-				if((count_b0 mod 2)=1)then
+				if((cnt_b0 mod 2)=1)then
 					cur_state<="0001";
 				end if;
 			when"0001"=>
-				if(count_b1=1)then
+				if(cnt_b1=1)then
 					cur_state<="0010";
-				elsif((count_b0 mod 2)=0) then
+				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000";
 				end if;
 			when"0010"=>
-				if(count_b1=2)then
+				if(cnt_b1=2)then
 					cur_state<="1010";
-				elsif(count_b4=1)then
+				elsif(cnt_b4=1)then
 					cur_state<="0011";
-				elsif((count_b0 mod 2)=0) then
+				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000";
 				end if;
 			when"1010"=>
-				if(count_b4=1)then
+				if(cnt_b4=1)then
 					cur_state<="0011";
-				elsif((count_b0 mod 2)=0) then
+				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000";
 				end if;
 			when"0011"=>
-				if(count_b5=1)then
+				if(cnt_b5=1)then
 					cur_state<="0100";
-				elsif(count_b4=2)then
+				elsif(cnt_b4=2)then
 					cur_state<="1011";
-				elsif((count_b0 mod 2)=0) then
+				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000";
 				end if;
 			when"1011"=>
-				if(count_b5=1)then
+				if(cnt_b5=1)then
 					cur_state<="0100";
-				elsif((count_b0 mod 2)=0) then
+				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000";
 				end if;
 			when"0100"=>
-				if(count_b5=2)then
+				if(cnt_b5=2)then
 					cur_state<="1100";
-				elsif(count_b6=1)then
+				elsif(cnt_b6=1)then
 					cur_state<="1111";
-				elsif((count_b0 mod 2)=0) then
+				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000";
 				end if;
 			when"1100"=>
-				if(count_b6=1)then
+				if(cnt_b6=1)then
 					cur_state<="1111";
-				elsif((count_b0 mod 2)=0) then
+				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000";
 				end if;	
 			when"1111"=>
-				if(count_b2=1)then
+				if(cnt_b2=1)then
 					cur_state<="0101";
-				elsif((count_b0 mod 2)=0) then
+				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000";
 				end if;
 			when"0101"=>
@@ -229,20 +229,20 @@ begin
 					cur_state<="0111";
 				elsif((nums=ys1 and numb=yb1)or(nums=ys2 and numb=yb2)) then
 					cur_state<="1000";
-				elsif((count_b0 mod 2)=0) then
+				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000";
 				else
 					cur_state<="0101";
 				end if;
 			when"0110"=>
 				if((nums=gs1 and numb=gb1)or(nums=gs2 and numb=gb2)) then
-					cur_state<="0111"; count_u1<=count_u1+1;
+					cur_state<="0111"; cnt_u1<=cnt_u1+1;
 				elsif((nums=ys1 and numb=yb1)or(nums=ys2 and numb=yb2)) then
-					cur_state<="1000"; count_u1<=count_u1+1;
+					cur_state<="1000"; cnt_u1<=cnt_u1+1;
 				elsif(nums="1011111" and numb="1111110") then
-					cur_state<="0101"; count_u1<=count_u1+1;
-				elsif((count_b0 mod 2)=0) then
-					cur_state<="0000"; count_u1<=0; count_u2<=0; count_u3<=0;
+					cur_state<="0101"; cnt_u1<=cnt_u1+1;
+				elsif((cnt_b0 mod 2)=0) then
+					cur_state<="0000"; cnt_u1<=0; cnt_u2<=0; cnt_u3<=0;
 		        elsif(temp1="0101") then
 					cur_state<="0101";
 				else
@@ -250,13 +250,13 @@ begin
 				end if;
 			when"0111"=>
 				if((nums=rs1 and numb=rb1)or(nums=rs2 and numb=rb2))then
-					cur_state<="0110"; count_u2<=count_u2+1;
+					cur_state<="0110"; cnt_u2<=cnt_u2+1;
 				elsif((nums=ys1 and numb=yb1)or(nums=ys2 and numb=yb2)) then
-					cur_state<="1000"; count_u2<=count_u2+1;
+					cur_state<="1000"; cnt_u2<=cnt_u2+1;
 				elsif(nums="1011111" and numb="1111110") then
-					cur_state<="0101"; count_u2<=count_u2+1;
-				elsif((count_b0 mod 2)=0) then
-					cur_state<="0000"; count_u1<=0; count_u2<=0; count_u3<=0;
+					cur_state<="0101"; cnt_u2<=cnt_u2+1;
+				elsif((cnt_b0 mod 2)=0) then
+					cur_state<="0000"; cnt_u1<=0; cnt_u2<=0; cnt_u3<=0;
 				elsif(temp1="0101") then
 					cur_state<="0101";
 				else
@@ -264,13 +264,13 @@ begin
 				end if;
 			when"1000"=>
 				if((nums=rs1 and numb=rb1)or(nums=rs2 and numb=rb2))then
-					cur_state<="0110"; count_u3<=count_u3+1;
+					cur_state<="0110"; cnt_u3<=cnt_u3+1;
 				elsif((nums=gs1 and numb=gb1)or(nums=gs2 and numb=gb2)) then
-					cur_state<="0111"; count_u3<=count_u3+1;
+					cur_state<="0111"; cnt_u3<=cnt_u3+1;
 				elsif(nums="1011111" and numb="1111110") then
-					cur_state<="0101"; count_u3<=count_u3+1;
-				elsif((count_b0 mod 2)=0) then
-					cur_state<="0000"; count_u1<=0; count_u2<=0; count_u3<=0;
+					cur_state<="0101"; cnt_u3<=cnt_u3+1;
+				elsif((cnt_b0 mod 2)=0) then
+					cur_state<="0000"; cnt_u1<=0; cnt_u2<=0; cnt_u3<=0;
 				elsif(temp1="0101") then
 					cur_state<="0101";
 				else
@@ -295,7 +295,7 @@ end process;
 --PROCESS (cur_state, clkin) begin
 --	if (clkin'event and clkin='1') then
 --		if(cur_state="0101" or cur_state="0110" or cur_state="0111" or cur_state="1000") then
---			case count_un is
+--			case cnt_un is
 --				when 0 => seg_un<="1111110";
 --				when 1 => seg_un<="0110000";
 --				when 2 => seg_un<="1101101";
@@ -325,10 +325,10 @@ dis11<= ys2;
 dis12<= yb2;				
 
 state_out<=cur_state;
---seg_un <= (count_u1*10000)+(count_u2*100)+count_u3;
-seg_u1 <= count_u1;
-seg_u2 <= count_u2;
-seg_u3 <= count_u3;
+--seg_un <= (cnt_u1*10000)+(cnt_u2*100)+cnt_u3;
+seg_u1 <= cnt_u1;
+seg_u2 <= cnt_u2;
+seg_u3 <= cnt_u3;
 
 -- user setup
 

@@ -1,7 +1,7 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.std_logic_unsigned.all;
-use IEEE.std_logic_arith.all;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.all;
+USE IEEE.STD_LOGIC_unsigned.all;
+USE IEEE.STD_LOGIC_ARITH.all;
 
 entity latticeDriver is
 
