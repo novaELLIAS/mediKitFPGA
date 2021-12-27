@@ -1,20 +1,20 @@
 
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
 
-entity LCDdecoder is
-port(
-	datain: in  std_logic_vector (6 downto 0);
-	dataout:out std_logic_vector (7 downto 0)
+ENTITY LCDdecoder is
+PORT(
+	dataIN: IN  STD_LOGIC_VECTOR (6 downto 0);
+	dataOUT:OUT STD_LOGIC_VECTOR (7 downto 0)
 );
 end;
 
-architecture behave of LCDdecoder is
-signal dis:std_logic_vector(7 downto 0);
+ARCHITECTURE behave of LCDdecoder is
+SIGNAL dis:STD_LOGIC_VECTOR(7 downto 0);
 begin
-	process(datain)
+	PROCESS(dataIN)
 		begin
-		case datain is
+		case dataIN is
 			when "1111110"=>dis<="00110000"; -- '0'
 			when "0110000"=>dis<="00110001"; -- '1'
 			when "1101101"=>dis<="00110010"; -- '2'
@@ -27,8 +27,8 @@ begin
 			when "1111011"=>dis<="00111001"; -- '9'
 			when others=>dis<="00100000";    -- " "
 		end case;
-	end process;
+	end PROCESS;
 	
-	dataout<=dis;
+	dataOUT<=dis;
 
 end behave;

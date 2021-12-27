@@ -1,20 +1,20 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.std_logic_unsigned.all;
-entity buzzerDriver is
-	port(
-		clk_base:in  std_logic;
-		clk_ctr: in  std_logic;
-		state_in:in  std_logic_vector(3 downto 0);
-		buzz_out:out std_logic:='0'
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+ENTITY buzzerDriver is
+	PORT(
+		clk_base:IN  STD_LOGIC;
+		clk_ctr: IN  STD_LOGIC;
+		state_in:IN  STD_LOGIC_VECTOR(3 downto 0);
+		buzz_OUT:OUT STD_LOGIC:='0'
 );
 end buzzerDriver;
 
-architecture behave of buzzerDriver is
-signal count:integer range 0 to 1;
-signal buz0: std_logic:='0';
+ARCHITECTURE behave of buzzerDriver is
+SIGNAL count:INTEGER range 0 to 1;
+SIGNAL buz0: STD_LOGIC:='0';
 begin
-p1:process(clk_ctr) -- 2f switch
+p1:PROCESS(clk_ctr) -- 2f switch
 begin
 	if(clk_ctr'event and clk_ctr='1')then
 		if(count=1)then
@@ -22,10 +22,10 @@ begin
 		else count<=count+1;
 		end if;
 	end if;
-end process p1;
+end PROCESS p1;
 
-p2:process(clk_base) -- f division
-variable c1:integer range 0 to 1:=0;
+p2:PROCESS(clk_base) -- f division
+variable c1:INTEGER range 0 to 1:=0;
 begin
 	if(clk_base'event and clk_base='1')then
 		if c1=1 then
@@ -33,18 +33,18 @@ begin
 		else c1:=c1+1;
 		end if;
 	end if;
-end process p2;
+end PROCESS p2;
 
-p3:process(state_in)
+p3:PROCESS(state_in)
 begin
 	if(state_in="0110" or state_in="0111" or state_in="1000")then
 		case count is
-			when 0=>buzz_out<=clk_base;
-			when 1=>buzz_out<=buz0;
+			when 0=>buzz_OUT<=clk_base;
+			when 1=>buzz_OUT<=buz0;
 			when others=>null;
 		end case;
-	else buzz_out<='0';
+	else buzz_OUT<='0';
 	end if;
-end process p3;
+end PROCESS p3;
 
 end behave;

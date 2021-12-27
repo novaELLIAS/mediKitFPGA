@@ -1,61 +1,61 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.std_logic_unsigned.all;
-use IEEE.std_logic_arith.all;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.STD_LOGIC_arith.ALL;
 
-entity numKeyAndSegDriver is
-port(
-	clkin:   in  std_logic;
-	clk_div: in  std_logic;
-	--cnt_un:  in  integer range 0 to 1000000:=0; -- cnt unntaken
-	cnt_u1:  in integer range 0 to 31:=0;       -- cnt unntaken 1
-	cnt_u2:  in integer range 0 to 31:=0;       -- cnt unntaken 2
-	cnt_u3:  in integer range 0 to 31:=0;       -- cnt unntaken 3
-	key_r:   in  std_logic_vector(3 downto 0);  -- 4x4 input
-	key_c:   out std_logic_vector(3 downto 0);  -- 4x4 output
-	state_in:in  std_logic_vector(3 downto 0);  -- untaken counter
-	seg:     out std_logic_vector(6 downto 0);  -- nixie output
-	cat:     out std_logic_vector(7 downto 0);  -- nixie cat
-	nums:    out std_logic_vector(6 downto 0);  -- _x return
-	numb:    out std_logic_vector(6 downto 0)   -- x_ return
+ENTITY numKeyAndSegDriver is
+PORT(
+	clkin:   IN  STD_LOGIC;
+	clk_div: IN  STD_LOGIC;
+	--cnt_un:  IN  INTEGER range 0 to 1000000:=0; -- cnt unntaken
+	cnt_u1:  IN INTEGER range 0 to 31:=0;       -- cnt unntaken 1
+	cnt_u2:  IN INTEGER range 0 to 31:=0;       -- cnt unntaken 2
+	cnt_u3:  IN INTEGER range 0 to 31:=0;       -- cnt unntaken 3
+	key_r:   IN  STD_LOGIC_VECTOR(3 downto 0);  -- 4x4 INput
+	key_c:   OUT STD_LOGIC_VECTOR(3 downto 0);  -- 4x4 OUTput
+	state_in:IN  STD_LOGIC_VECTOR(3 downto 0);  -- untaken counter
+	seg:     OUT STD_LOGIC_VECTOR(6 downto 0);  -- nixie OUTput
+	cat:     OUT STD_LOGIC_VECTOR(7 downto 0);  -- nixie cat
+	nums:    OUT STD_LOGIC_VECTOR(6 downto 0);  -- _x return
+	numb:    OUT STD_LOGIC_VECTOR(6 downto 0)   -- x_ return
 );
 end numKeyAndSegDriver;
 
-architecture a of numKeyAndSegDriver is
-	signal key_c0:std_logic_vector(3 downto 0);
-	signal C:integer range 0 to 16:=0;
-	signal pre:integer range 0 to 16:=0;
-	signal flag:integer range 0 to 1:=0;
-	signal nums_temp: std_logic_vector(6 downto 0):="1111110";
-	signal numb_temp: std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp1: std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp2: std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp3: std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp4: std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp5: std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp6: std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp7: std_logic_vector(6 downto 0):="1111111";
-	signal seg_temp8: std_logic_vector(6 downto 0):="1111111";
-	signal seg_temp9: std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp10:std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp11:std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp12:std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp13:std_logic_vector(6 downto 0):="1111110";
-	signal seg_temp14:std_logic_vector(6 downto 0):="1111110";
-	signal seg_tempna:std_logic_vector(6 downto 0):="1111110";
-	signal seg_tempnb:std_logic_vector(6 downto 0):="1111110";
---	signal seg_temp1a:std_logic_vector(6 downto 0):="1111110";
---	signal seg_temp1b:std_logic_vector(6 downto 0):="1111110";
---	signal seg_temp2a:std_logic_vector(6 downto 0):="1111110";
---	signal seg_temp2b:std_logic_vector(6 downto 0):="1111110";
---	signal seg_temp3a:std_logic_vector(6 downto 0):="1111110";
---	signal seg_temp3b:std_logic_vector(6 downto 0):="1111110";
-	signal sel61 :integer range 0 to 60:=0;    -- counter %61
-	signal count_btn3:integer range 0 to 1:=0; -- 1r, 2g, 3y
+ARCHITECTURE a of numKeyAndSegDriver is
+	SIGNAL key_c0:STD_LOGIC_VECTOR(3 downto 0);
+	SIGNAL C:INTEGER range 0 to 16:=0;
+	SIGNAL pre:INTEGER range 0 to 16:=0;
+	SIGNAL flag:INTEGER range 0 to 1:=0;
+	SIGNAL nums_temp: STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL numb_temp: STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp1: STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp2: STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp3: STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp4: STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp5: STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp6: STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp7: STD_LOGIC_VECTOR(6 downto 0):="1111111";
+	SIGNAL seg_temp8: STD_LOGIC_VECTOR(6 downto 0):="1111111";
+	SIGNAL seg_temp9: STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp10:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp11:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp12:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp13:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_temp14:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_tempna:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL seg_tempnb:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+--	SIGNAL seg_temp1a:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+--	SIGNAL seg_temp1b:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+--	SIGNAL seg_temp2a:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+--	SIGNAL seg_temp2b:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+--	SIGNAL seg_temp3a:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+--	SIGNAL seg_temp3b:STD_LOGIC_VECTOR(6 downto 0):="1111110";
+	SIGNAL sel60 :INTEGER range 0 to 60:=0;    -- counter %61
+	SIGNAL count_btn3:INTEGER range 0 to 1:=0; -- 1r, 2g, 3y
 begin  
     
-P0:process(clkin)
-variable sel4:integer range 0 to 3:=0; -- keyboard row scan
+P0:PROCESS(clkin)
+variable sel4:INTEGER range 0 to 3:=0; -- keyboard row scan
 begin
 	if clkin'event and clkin='1' then
 		case sel4 is
@@ -70,11 +70,11 @@ begin
 		else sel4:=sel4+1;
 		end if;
 	end if;
-end process P0;
+end PROCESS P0;
 	
 key_c <= key_c0;
    
-P1:process(key_c0,key_r, clkin) -- keyboard line readin
+P1:PROCESS(key_c0,key_r, clkin) -- keyboard lINe readin
 begin
 	if (clkin'event AND clkin='1') then
 		if(state_in="0000")then C<=0;
@@ -116,11 +116,11 @@ begin
          end case;
 		end if;
 	end if;
-end process P1;
+end PROCESS P1;
     
-process(clkin)
+PROCESS(clkin)
 begin
-if(clkin'event and clkin='1') then -- if sta@timesetting -> return num to control
+if(clkin'event and clkin='1') then -- if sta@timesettINg -> return num to control
     if(state_in="0010" or state_in="0011" or state_in="0100" or state_in="1010" or state_in="1011" or state_in="1100") then
 		case C is
            when 1 => nums_temp<="1111110"; --0
@@ -142,11 +142,11 @@ if(clkin'event and clkin='1') then -- if sta@timesetting -> return num to contro
            when 16=> numb_temp<="1111011"; --9
            when others=>NULL;
 		end case;
-	elsif(state_in="1111") then -- set finish: nexie reinit
+	elsif(state_in="1111") then -- set finish: nexie reINit
 		nums_temp<="1111110";
 		numb_temp<="1111110";
 	else
-		case (sel61/10) is
+		case (sel60/10) is
 			when 0 => nums_temp<="1111110";--0
 			when 1 => nums_temp<="0110000";--1
 			when 2 => nums_temp<="1101101";--2
@@ -156,7 +156,7 @@ if(clkin'event and clkin='1') then -- if sta@timesetting -> return num to contro
 			when 6 => nums_temp<="1011111";--6
 			when others=>NULL;
 		end case;
-		case (sel61 mod 10) is
+		case (sel60 mod 10) is
 			when 0 => numb_temp<="1111110";--0
 			when 1 => numb_temp<="0110000";--1
 			when 2 => numb_temp<="1101101";--2
@@ -173,18 +173,18 @@ if(clkin'event and clkin='1') then -- if sta@timesetting -> return num to contro
 	nums<=nums_temp;
 	numb<=numb_temp;
 end if;
-end process;
+end PROCESS;
 		
        
 
-p2:process(clkin,state_in,sel61)
-variable count:integer range 0 to 7;
+p2:PROCESS(clkin,state_in,sel60)
+variable count:INTEGER range 0 to 7;
 	begin
 	   if (clkin'event AND clkin='1') then
 			if(state_in="0000" or state_in="0001") then cat<="11111111"; -- seg off
 			else
 			case count is
-			when 0 =>cat<="11111101";count:=1; -- seg output destin
+			when 0 =>cat<="11111101";count:=1; -- seg OUTput destIN
 				if(state_in="0010")then
 					seg<=seg_temp1;
 				elsif(state_in="0011")then
@@ -200,8 +200,8 @@ variable count:integer range 0 to 7;
 				elsif(state_in="1111" )then
 					seg<="1111110";
 				elsif(state_in="0101" or state_in="0110" or state_in="0111" or state_in="1000")then
-					-- counting down
-					case (sel61/10) is
+					-- countINg down
+					case (sel60/10) is
 						when 0 => seg_temp7<="1111110";--0
 						when 1 => seg_temp7<="0110000";--1
 						when 2 => seg_temp7<="1101101";--2
@@ -230,7 +230,7 @@ variable count:integer range 0 to 7;
 					seg<="1010111";
 				elsif(state_in="0101" or state_in="0110" or state_in="0111" or state_in="1000")then
 				 -- count down start || alert
-					case (sel61 mod 10) is
+					case (sel60 mod 10) is
 						when 0 => seg_temp8<="1111110";--0
 						when 1 => seg_temp8<="0110000";--1
 						when 2 => seg_temp8<="1101101";--2
@@ -339,9 +339,9 @@ variable count:integer range 0 to 7;
 			end case;
 			end if;
 		end if;
-end process p2;
+end PROCESS p2;
 
-p3:process(clkin,state_in)
+p3:PROCESS(clkin,state_in)
    begin
    if pre/=C then
        if (clkin'event AND clkin='1') then
@@ -354,7 +354,7 @@ p3:process(clkin,state_in)
            seg_temp5<="1111110";
            seg_temp6<="1111110";
 		 
-		 -- time set input
+		 -- time set INput
 		 elsif(state_in="0010")then
        case C is
            when 1 => seg_temp1<="1111110";--0
@@ -484,27 +484,26 @@ p3:process(clkin,state_in)
 		 end if;
        end if;
    end if;
-   end process p3;
+   end PROCESS p3;
    
 
 	
-p4:process(clk_div, state_in, sel61) -- %61 counter
+p4:PROCESS(clk_div, state_in, sel60) -- %60 counter
 begin
 if(state_in="0000")then
-		sel61<=0;
+		sel60 <= 0;
 elsif(state_in="0101" or state_in="0110" or state_in="0111" or state_in="1000")then
 	if(clk_div'event and clk_div='1') then
-		sel61<=sel61+1;
+		sel60 <= sel60+1;
 	end if;
-	if(sel61=61)then
-		sel61<=0;
+	if(sel60 = 60)then
+		sel60 <= 0;
 	end if;
 	if(state_in="0000")then
-		sel61<=0;
+		sel60 <= 0;
 	end if;
-	
 end if;
-end process p4;
+end PROCESS p4;
 end a;
 
 

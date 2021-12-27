@@ -2,7 +2,7 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 ENTITY LEDdriver is
-  port(
+  PORT(
      clk: IN  STD_LOGIC;
      sta: IN  STD_LOGIC_VECTOR (3 downto 0);
      led: OUT STD_LOGIC_VECTOR (15 downto 0)
@@ -11,11 +11,11 @@ END LEDdriver;
 
 ARCHITECTURE a of LEDdriver is
 type all_state is(s0,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15);
-signal cnt: STD_LOGIC :='0';
-signal flag: STD_LOGIC:='0';
-signal state:all_state;
+SIGNAL cnt: STD_LOGIC :='0';
+SIGNAL flag: STD_LOGIC:='0';
+SIGNAL state:all_state;
 begin
-	process(clk)
+	PROCESS(clk)
 	begin
 		if(clk'event and clk = '1')then
 		
@@ -65,5 +65,5 @@ begin
          end case;
      end if;
   end if;
-  end process;
+  end PROCESS;
 END a;

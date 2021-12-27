@@ -1,5 +1,5 @@
 Fitter report for mediKit
-Sun Dec 26 19:30:29 2021
+Mon Dec 27 21:27:01 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -58,14 +58,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------+
 ; Fitter Summary                                                      ;
 +-----------------------+---------------------------------------------+
-; Fitter Status         ; Successful - Sun Dec 26 19:30:29 2021       ;
+; Fitter Status         ; Successful - Mon Dec 27 21:27:01 2021       ;
 ; Quartus Prime Version ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name         ; mediKit                                     ;
 ; Top-level Entity Name ; mediKit                                     ;
 ; Family                ; MAX II                                      ;
 ; Device                ; EPM1270T144C5                               ;
 ; Timing Models         ; Final                                       ;
-; Total logic elements  ; 1,183 / 1,270 ( 93 % )                      ;
+; Total logic elements  ; 1,178 / 1,270 ( 93 % )                      ;
 ; Total pins            ; 83 / 116 ( 72 % )                           ;
 ; Total virtual pins    ; 0                                           ;
 ; UFM blocks            ; 0 / 1 ( 0 % )                               ;
@@ -134,10 +134,10 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.4%      ;
+;     Processor 2            ;   2.6%      ;
 ;     Processor 3            ;   2.1%      ;
-;     Processor 4            ;   2.1%      ;
-;     Processor 5            ;   2.1%      ;
+;     Processor 4            ;   2.0%      ;
+;     Processor 5            ;   2.0%      ;
 ;     Processor 6            ;   2.0%      ;
 ;     Processor 7            ;   2.0%      ;
 ;     Processor 8            ;   2.0%      ;
@@ -155,28 +155,28 @@ The pin-out file can be found in D:/works/FPGA/mediKitFPGA/output_files/mediKit.
 +---------------------------------------------+------------------------+
 ; Resource                                    ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Total logic elements                        ; 1,183 / 1,270 ( 93 % ) ;
-;     -- Combinational with no register       ; 815                    ;
+; Total logic elements                        ; 1,178 / 1,270 ( 93 % ) ;
+;     -- Combinational with no register       ; 814                    ;
 ;     -- Register only                        ; 19                     ;
-;     -- Combinational with a register        ; 349                    ;
+;     -- Combinational with a register        ; 345                    ;
 ;                                             ;                        ;
 ; Logic element usage by number of LUT inputs ;                        ;
-;     -- 4 input functions                    ; 579                    ;
-;     -- 3 input functions                    ; 183                    ;
-;     -- 2 input functions                    ; 252                    ;
+;     -- 4 input functions                    ; 576                    ;
+;     -- 3 input functions                    ; 175                    ;
+;     -- 2 input functions                    ; 258                    ;
 ;     -- 1 input functions                    ; 149                    ;
 ;     -- 0 input functions                    ; 1                      ;
 ;                                             ;                        ;
 ; Logic elements by mode                      ;                        ;
-;     -- normal mode                          ; 1059                   ;
+;     -- normal mode                          ; 1054                   ;
 ;     -- arithmetic mode                      ; 124                    ;
 ;     -- qfbk mode                            ; 85                     ;
 ;     -- register cascade mode                ; 0                      ;
-;     -- synchronous clear/load mode          ; 122                    ;
+;     -- synchronous clear/load mode          ; 123                    ;
 ;     -- asynchronous clear/load mode         ; 15                     ;
 ;                                             ;                        ;
-; Total registers                             ; 368 / 1,270 ( 29 % )   ;
-; Total LABs                                  ; 126 / 127 ( 99 % )     ;
+; Total registers                             ; 364 / 1,270 ( 29 % )   ;
+; Total LABs                                  ; 124 / 127 ( 98 % )     ;
 ; Logic elements in carry chains              ; 165                    ;
 ; Virtual pins                                ; 0                      ;
 ; I/O pins                                    ; 83 / 116 ( 72 % )      ;
@@ -190,12 +190,12 @@ The pin-out file can be found in D:/works/FPGA/mediKitFPGA/output_files/mediKit.
 ; Global signals                              ; 4                      ;
 ;     -- Global clocks                        ; 4 / 4 ( 100 % )        ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )          ;
-; Average interconnect usage (total/H/V)      ; 43.6% / 47.7% / 39.1%  ;
-; Peak interconnect usage (total/H/V)         ; 50.3% / 57.0% / 43.6%  ;
-; Maximum fan-out                             ; 319                    ;
+; Average interconnect usage (total/H/V)      ; 44.4% / 48.2% / 40.3%  ;
+; Peak interconnect usage (total/H/V)         ; 47.6% / 55.6% / 40.9%  ;
+; Maximum fan-out                             ; 315                    ;
 ; Highest non-global fan-out                  ; 85                     ;
-; Total fan-out                               ; 4224                   ;
-; Average fan-out                             ; 3.34                   ;
+; Total fan-out                               ; 4203                   ;
+; Average fan-out                             ; 3.33                   ;
 +---------------------------------------------+------------------------+
 
 
@@ -211,7 +211,7 @@ The pin-out file can be found in D:/works/FPGA/mediKitFPGA/output_files/mediKit.
 ; btn4       ; 89    ; 3        ; 17           ; 5            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
 ; btn5       ; 91    ; 3        ; 17           ; 5            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
 ; btn6       ; 121   ; 2        ; 10           ; 11           ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
-; clock      ; 18    ; 1        ; 0            ; 7            ; 5           ; 312                   ; 0                  ; yes    ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
+; clock      ; 18    ; 1        ; 0            ; 7            ; 5           ; 315                   ; 0                  ; yes    ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
 ; key_row[0] ; 111   ; 2        ; 15           ; 11           ; 0           ; 8                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
 ; key_row[1] ; 112   ; 2        ; 14           ; 11           ; 1           ; 7                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
 ; key_row[2] ; 113   ; 2        ; 13           ; 11           ; 1           ; 7                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
@@ -227,8 +227,8 @@ The pin-out file can be found in D:/works/FPGA/mediKitFPGA/output_files/mediKit.
 ; LCD_EN         ; 108   ; 3        ; 17           ; 10           ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; LCD_RS         ; 48    ; 4        ; 7            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; LCD_RW         ; 109   ; 2        ; 16           ; 11           ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; LCD_data[0]    ; 101   ; 3        ; 17           ; 7            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; LCD_data[1]    ; 110   ; 2        ; 16           ; 11           ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
+; LCD_data[0]    ; 101   ; 3        ; 17           ; 7            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; LCD_data[1]    ; 110   ; 2        ; 16           ; 11           ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; LCD_data[2]    ; 102   ; 3        ; 17           ; 7            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; LCD_data[3]    ; 103   ; 3        ; 17           ; 8            ; 5           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; LCD_data[4]    ; 104   ; 3        ; 17           ; 8            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
@@ -286,7 +286,7 @@ The pin-out file can be found in D:/works/FPGA/mediKitFPGA/output_files/mediKit.
 ; row_control[3] ; 5     ; 1        ; 0            ; 9            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; row_control[4] ; 4     ; 1        ; 0            ; 9            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; row_control[5] ; 3     ; 1        ; 0            ; 10           ; 5           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; row_control[6] ; 2     ; 1        ; 0            ; 10           ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; row_control[6] ; 2     ; 1        ; 0            ; 10           ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
 ; row_control[7] ; 1     ; 1        ; 0            ; 10           ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; seg[0]         ; 52    ; 4        ; 8            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; seg[1]         ; 53    ; 4        ; 8            ; 3            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
@@ -485,7 +485,7 @@ Note: User assignments will override these defaults. The user specified values a
 +-------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                                                                                      ; Entity Name         ; Library Name ;
 +-------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |mediKit                                  ; 1183 (0)    ; 368          ; 0          ; 83   ; 0            ; 815 (0)      ; 19 (0)            ; 349 (0)          ; 165 (0)         ; 82 (0)     ; |mediKit                                                                                                                                                 ; mediKit             ; work         ;
+; |mediKit                                  ; 1178 (0)    ; 364          ; 0          ; 83   ; 0            ; 814 (0)      ; 19 (0)            ; 345 (0)          ; 165 (0)         ; 82 (0)     ; |mediKit                                                                                                                                                 ; mediKit             ; work         ;
 ;    |LCD1602driver:inst35|                 ; 136 (136)   ; 6            ; 0          ; 0    ; 0            ; 130 (130)    ; 0 (0)             ; 6 (6)            ; 6 (6)           ; 7 (7)      ; |mediKit|LCD1602driver:inst35                                                                                                                            ; LCD1602driver       ; work         ;
 ;    |LCDdecoder:inst36|                    ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |mediKit|LCDdecoder:inst36                                                                                                                               ; LCDdecoder          ; work         ;
 ;    |LCDdecoder:inst37|                    ; 0 (0)       ; 0            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 2 (2)      ; |mediKit|LCDdecoder:inst37                                                                                                                               ; LCDdecoder          ; work         ;
@@ -503,10 +503,9 @@ Note: User assignments will override these defaults. The user specified values a
 ;    |buzzerDriver:inst31|                  ; 3 (3)       ; 1            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |mediKit|buzzerDriver:inst31                                                                                                                             ; buzzerDriver        ; work         ;
 ;    |freqDiv_1000:inst23|                  ; 18 (18)     ; 9            ; 0          ; 0    ; 0            ; 9 (9)        ; 1 (1)             ; 8 (8)            ; 8 (8)           ; 1 (1)      ; |mediKit|freqDiv_1000:inst23                                                                                                                             ; freqDiv_1000        ; work         ;
 ;    |freqDiv_125:inst29|                   ; 9 (9)       ; 7            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 7 (7)            ; 6 (6)           ; 0 (0)      ; |mediKit|freqDiv_125:inst29                                                                                                                              ; freqDiv_125         ; work         ;
-;    |freqDiv_20:inst4|                     ; 5 (5)       ; 4            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |mediKit|freqDiv_20:inst4                                                                                                                                ; freqDiv_20          ; work         ;
 ;    |freqDiv_250:inst28|                   ; 16 (16)     ; 8            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 8 (8)            ; 7 (7)           ; 1 (1)      ; |mediKit|freqDiv_250:inst28                                                                                                                              ; freqDiv_250         ; work         ;
 ;    |freqDiv_500:inst26|                   ; 16 (16)     ; 8            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 8 (8)            ; 7 (7)           ; 1 (1)      ; |mediKit|freqDiv_500:inst26                                                                                                                              ; freqDiv_500         ; work         ;
-;    |keyInput:inst|                        ; 14 (14)     ; 14           ; 0          ; 0    ; 0            ; 0 (0)        ; 7 (7)             ; 7 (7)            ; 0 (0)           ; 7 (7)      ; |mediKit|keyInput:inst                                                                                                                                   ; keyInput            ; work         ;
+;    |keyINput:inst|                        ; 14 (14)     ; 14           ; 0          ; 0    ; 0            ; 0 (0)        ; 7 (7)             ; 7 (7)            ; 0 (0)           ; 7 (7)      ; |mediKit|keyINput:inst                                                                                                                                   ; keyINput            ; work         ;
 ;    |latticeDriver:inst30|                 ; 46 (46)     ; 4            ; 0          ; 0    ; 0            ; 42 (42)      ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |mediKit|latticeDriver:inst30                                                                                                                            ; latticeDriver       ; work         ;
 ;    |main:inst14|                          ; 222 (222)   ; 107          ; 0          ; 0    ; 0            ; 115 (115)    ; 0 (0)             ; 107 (107)        ; 15 (15)         ; 37 (37)    ; |mediKit|main:inst14                                                                                                                                     ; main                ; work         ;
 ;    |numKeyAndSegDriver:inst34|            ; 565 (368)   ; 167          ; 0          ; 0    ; 0            ; 398 (201)    ; 2 (2)             ; 165 (165)        ; 116 (5)         ; 14 (14)    ; |mediKit|numKeyAndSegDriver:inst34                                                                                                                       ; numKeyAndSegDriver  ; work         ;
@@ -640,7 +639,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; seg[2]         ; Output   ; --            ;
 ; seg[1]         ; Output   ; --            ;
 ; seg[0]         ; Output   ; --            ;
-; clock          ; Input    ; (0)           ;
+; clock          ; Input    ; (1)           ;
 ; key_row[1]     ; Input    ; (1)           ;
 ; key_row[0]     ; Input    ; (1)           ;
 ; key_row[3]     ; Input    ; (1)           ;
@@ -655,69 +654,68 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+----------+---------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                       ;
-+--------------------------------------------+--------------+---------+--------------+--------+----------------------+------------------+
-; Name                                       ; Location     ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
-+--------------------------------------------+--------------+---------+--------------+--------+----------------------+------------------+
-; buzzerDriver:inst31|p3~0                   ; LC_X11_Y6_N3 ; 3       ; Async. clear ; no     ; --                   ; --               ;
-; clock                                      ; PIN_18       ; 312     ; Clock        ; yes    ; Global Clock         ; GCLK0            ;
-; freqDiv_1000:inst23|clktmp                 ; LC_X6_Y9_N6  ; 7       ; Clock        ; no     ; --                   ; --               ;
-; freqDiv_125:inst29|Equal0~1                ; LC_X13_Y6_N9 ; 6       ; Sync. clear  ; no     ; --                   ; --               ;
-; freqDiv_125:inst29|clktmp                  ; LC_X13_Y6_N7 ; 2       ; Clock        ; no     ; --                   ; --               ;
-; freqDiv_20:inst4|clktmp                    ; LC_X10_Y4_N9 ; 8       ; Clock        ; yes    ; Global Clock         ; GCLK1            ;
-; freqDiv_250:inst28|clktmp                  ; LC_X12_Y2_N4 ; 34      ; Clock        ; yes    ; Global Clock         ; GCLK3            ;
-; freqDiv_500:inst26|clktmp                  ; LC_X5_Y6_N6  ; 2       ; Clock        ; no     ; --                   ; --               ;
-; keyInput:inst|bout0                        ; LC_X1_Y4_N3  ; 1       ; Clock        ; no     ; --                   ; --               ;
-; keyInput:inst|bout1                        ; LC_X7_Y8_N8  ; 2       ; Clock        ; no     ; --                   ; --               ;
-; keyInput:inst|bout2                        ; LC_X5_Y5_N9  ; 1       ; Clock        ; no     ; --                   ; --               ;
-; keyInput:inst|bout3                        ; LC_X9_Y6_N6  ; 1       ; Clock        ; no     ; --                   ; --               ;
-; keyInput:inst|bout4                        ; LC_X7_Y8_N1  ; 2       ; Clock        ; no     ; --                   ; --               ;
-; keyInput:inst|bout5                        ; LC_X1_Y4_N6  ; 2       ; Clock        ; no     ; --                   ; --               ;
-; keyInput:inst|bout6                        ; LC_X7_Y9_N9  ; 1       ; Clock        ; no     ; --                   ; --               ;
-; latticeDriver:inst30|col_r[5]~11           ; LC_X10_Y4_N0 ; 8       ; Latch enable ; yes    ; Global Clock         ; GCLK2            ;
-; latticeDriver:inst30|col_r[7]~12           ; LC_X8_Y6_N5  ; 4       ; Latch enable ; no     ; --                   ; --               ;
-; latticeDriver:inst30|sel8[0]               ; LC_X8_Y5_N1  ; 30      ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|cnt_b0[0]                      ; LC_X5_Y4_N0  ; 34      ; Async. clear ; no     ; --                   ; --               ;
-; main:inst14|cnt_u1[1]~11                   ; LC_X12_Y4_N0 ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
-; main:inst14|cnt_u1[1]~16                   ; LC_X13_Y5_N9 ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|cnt_u2[2]~10                   ; LC_X12_Y4_N5 ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
-; main:inst14|cnt_u2[2]~14                   ; LC_X13_Y7_N7 ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|cnt_u3[1]~10                   ; LC_X12_Y4_N7 ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
-; main:inst14|cnt_u3[1]~14                   ; LC_X13_Y4_N7 ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|gs1[1]~0                       ; LC_X9_Y5_N0  ; 13      ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|gs2[1]~0                       ; LC_X8_Y8_N5  ; 13      ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|rs1[2]~0                       ; LC_X11_Y6_N7 ; 13      ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|rs2[1]~0                       ; LC_X12_Y9_N3 ; 13      ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|ys1[3]~0                       ; LC_X12_Y9_N7 ; 13      ; Clock enable ; no     ; --                   ; --               ;
-; main:inst14|ys2[3]~0                       ; LC_X12_Y9_N6 ; 13      ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|C[2]             ; LC_X7_Y7_N6  ; 37      ; Sync. load   ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|C[4]             ; LC_X8_Y10_N8 ; 19      ; Sync. load   ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|Equal14~2        ; LC_X1_Y8_N3  ; 23      ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|numb_temp[2]~3   ; LC_X3_Y9_N7  ; 6       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|nums_temp[1]~3   ; LC_X5_Y9_N0  ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|p2~1             ; LC_X7_Y6_N6  ; 8       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|process_2~0      ; LC_X6_Y6_N1  ; 17      ; Sync. load   ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg[5]~17        ; LC_X5_Y4_N3  ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg[6]~10        ; LC_X3_Y4_N1  ; 2       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp10[6]~0  ; LC_X2_Y10_N7 ; 7       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp11[3]~0  ; LC_X2_Y6_N4  ; 6       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp12[6]~0  ; LC_X2_Y6_N0  ; 7       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp13[3]~0  ; LC_X2_Y9_N1  ; 6       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp14[6]~0  ; LC_X3_Y10_N6 ; 7       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp1[3]~8   ; LC_X3_Y7_N9  ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp2[6]~6   ; LC_X2_Y5_N6  ; 6       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp3[3]~0   ; LC_X4_Y7_N8  ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp4[6]~0   ; LC_X4_Y6_N9  ; 6       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp5[3]~4   ; LC_X3_Y7_N7  ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp6[6]~14  ; LC_X2_Y5_N9  ; 6       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp7[3]~4   ; LC_X1_Y9_N9  ; 6       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp8[6]~5   ; LC_X2_Y9_N4  ; 7       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_temp9[3]~0   ; LC_X3_Y10_N4 ; 6       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_tempna[6]~6  ; LC_X11_Y4_N1 ; 5       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|seg_tempnb[6]~14 ; LC_X14_Y3_N5 ; 6       ; Clock enable ; no     ; --                   ; --               ;
-; numKeyAndSegDriver:inst34|sel61[0]~12      ; LC_X6_Y8_N9  ; 6       ; Async. clear ; no     ; --                   ; --               ;
-+--------------------------------------------+--------------+---------+--------------+--------+----------------------+------------------+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                        ;
++--------------------------------------------+---------------+---------+--------------+--------+----------------------+------------------+
+; Name                                       ; Location      ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
++--------------------------------------------+---------------+---------+--------------+--------+----------------------+------------------+
+; buzzerDriver:inst31|p3~0                   ; LC_X4_Y6_N4   ; 3       ; Async. clear ; no     ; --                   ; --               ;
+; clock                                      ; PIN_18        ; 315     ; Clock        ; yes    ; Global Clock         ; GCLK0            ;
+; freqDiv_1000:inst23|clktmp                 ; LC_X12_Y3_N9  ; 7       ; Clock        ; yes    ; Global Clock         ; GCLK1            ;
+; freqDiv_125:inst29|Equal0~1                ; LC_X1_Y4_N9   ; 6       ; Sync. clear  ; no     ; --                   ; --               ;
+; freqDiv_125:inst29|clktmp                  ; LC_X2_Y4_N0   ; 2       ; Clock        ; no     ; --                   ; --               ;
+; freqDiv_250:inst28|clktmp                  ; LC_X14_Y5_N5  ; 34      ; Clock        ; yes    ; Global Clock         ; GCLK3            ;
+; freqDiv_500:inst26|clktmp                  ; LC_X2_Y6_N5   ; 2       ; Clock        ; no     ; --                   ; --               ;
+; keyINput:inst|bOUT0                        ; LC_X5_Y4_N7   ; 1       ; Clock        ; no     ; --                   ; --               ;
+; keyINput:inst|bOUT1                        ; LC_X6_Y7_N7   ; 2       ; Clock        ; no     ; --                   ; --               ;
+; keyINput:inst|bOUT2                        ; LC_X3_Y10_N7  ; 1       ; Clock        ; no     ; --                   ; --               ;
+; keyINput:inst|bOUT3                        ; LC_X2_Y6_N9   ; 1       ; Clock        ; no     ; --                   ; --               ;
+; keyINput:inst|bOUT4                        ; LC_X6_Y7_N6   ; 2       ; Clock        ; no     ; --                   ; --               ;
+; keyINput:inst|bOUT5                        ; LC_X5_Y10_N6  ; 2       ; Clock        ; no     ; --                   ; --               ;
+; keyINput:inst|bOUT6                        ; LC_X6_Y7_N5   ; 1       ; Clock        ; no     ; --                   ; --               ;
+; latticeDriver:inst30|col_r[5]~11           ; LC_X12_Y3_N4  ; 8       ; Latch enable ; yes    ; Global Clock         ; GCLK2            ;
+; latticeDriver:inst30|col_r[7]~12           ; LC_X3_Y7_N0   ; 4       ; Latch enable ; no     ; --                   ; --               ;
+; latticeDriver:inst30|sel8[0]               ; LC_X1_Y7_N0   ; 26      ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|cnt_b0[0]                      ; LC_X5_Y7_N8   ; 34      ; Async. clear ; no     ; --                   ; --               ;
+; main:inst14|cnt_u1[0]~11                   ; LC_X9_Y7_N7   ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
+; main:inst14|cnt_u1[0]~16                   ; LC_X9_Y4_N5   ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|cnt_u2[1]~10                   ; LC_X9_Y7_N8   ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
+; main:inst14|cnt_u2[1]~14                   ; LC_X13_Y5_N5  ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|cnt_u3[0]~10                   ; LC_X9_Y7_N9   ; 5       ; Sync. clear  ; no     ; --                   ; --               ;
+; main:inst14|cnt_u3[0]~14                   ; LC_X14_Y7_N8  ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|gb2[6]~0                       ; LC_X3_Y7_N7   ; 13      ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|gs1[1]~0                       ; LC_X11_Y8_N6  ; 13      ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|rb1[3]~0                       ; LC_X14_Y10_N5 ; 13      ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|rb2[1]~0                       ; LC_X11_Y8_N7  ; 13      ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|yb2[2]~0                       ; LC_X4_Y8_N3   ; 13      ; Clock enable ; no     ; --                   ; --               ;
+; main:inst14|ys1[3]~0                       ; LC_X8_Y8_N2   ; 13      ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|C[2]             ; LC_X8_Y10_N7  ; 37      ; Sync. load   ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|C[4]             ; LC_X9_Y8_N3   ; 19      ; Sync. load   ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|Equal14~2        ; LC_X5_Y4_N1   ; 23      ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|numb_temp[3]~3   ; LC_X8_Y9_N2   ; 6       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|nums_temp[2]~3   ; LC_X12_Y10_N2 ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|p2~1             ; LC_X3_Y9_N3   ; 8       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|process_2~0      ; LC_X8_Y7_N0   ; 17      ; Sync. load   ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg[5]~17        ; LC_X7_Y8_N9   ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg[6]~10        ; LC_X7_Y5_N6   ; 2       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp10[6]~0  ; LC_X5_Y6_N5   ; 7       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp11[3]~0  ; LC_X7_Y10_N1  ; 6       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp12[6]~0  ; LC_X7_Y7_N2   ; 7       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp13[3]~0  ; LC_X3_Y8_N5   ; 6       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp14[6]~0  ; LC_X5_Y6_N6   ; 7       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp1[3]~8   ; LC_X5_Y8_N0   ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp2[6]~6   ; LC_X3_Y4_N8   ; 6       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp3[3]~0   ; LC_X3_Y8_N3   ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp4[6]~0   ; LC_X3_Y4_N3   ; 6       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp5[3]~4   ; LC_X3_Y8_N8   ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp6[6]~14  ; LC_X3_Y5_N7   ; 6       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp7[3]~4   ; LC_X12_Y10_N3 ; 6       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp8[6]~5   ; LC_X7_Y9_N4   ; 7       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_temp9[3]~0   ; LC_X5_Y8_N7   ; 6       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_tempna[6]~6  ; LC_X9_Y8_N9   ; 5       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|seg_tempnb[6]~14 ; LC_X11_Y6_N8  ; 6       ; Clock enable ; no     ; --                   ; --               ;
+; numKeyAndSegDriver:inst34|sel60[0]~12      ; LC_X4_Y9_N9   ; 6       ; Async. clear ; no     ; --                   ; --               ;
++--------------------------------------------+---------------+---------+--------------+--------+----------------------+------------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -725,10 +723,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------+--------------+---------+----------------------+------------------+
 ; Name                             ; Location     ; Fan-Out ; Global Resource Used ; Global Line Name ;
 +----------------------------------+--------------+---------+----------------------+------------------+
-; clock                            ; PIN_18       ; 312     ; Global Clock         ; GCLK0            ;
-; freqDiv_20:inst4|clktmp          ; LC_X10_Y4_N9 ; 8       ; Global Clock         ; GCLK1            ;
-; freqDiv_250:inst28|clktmp        ; LC_X12_Y2_N4 ; 34      ; Global Clock         ; GCLK3            ;
-; latticeDriver:inst30|col_r[5]~11 ; LC_X10_Y4_N0 ; 8       ; Global Clock         ; GCLK2            ;
+; clock                            ; PIN_18       ; 315     ; Global Clock         ; GCLK0            ;
+; freqDiv_1000:inst23|clktmp       ; LC_X12_Y3_N9 ; 7       ; Global Clock         ; GCLK1            ;
+; freqDiv_250:inst28|clktmp        ; LC_X14_Y5_N5 ; 34      ; Global Clock         ; GCLK3            ;
+; latticeDriver:inst30|col_r[5]~11 ; LC_X12_Y3_N4 ; 8       ; Global Clock         ; GCLK2            ;
 +----------------------------------+--------------+---------+----------------------+------------------+
 
 
@@ -737,132 +735,132 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+------------------------+
 ; Routing Resource Type ; Usage                  ;
 +-----------------------+------------------------+
-; C4s                   ; 862 / 2,870 ( 30 % )   ;
-; Direct links          ; 261 / 3,938 ( 7 % )    ;
+; C4s                   ; 931 / 2,870 ( 32 % )   ;
+; Direct links          ; 301 / 3,938 ( 8 % )    ;
 ; Global clocks         ; 4 / 4 ( 100 % )        ;
-; LAB clocks            ; 26 / 72 ( 36 % )       ;
-; LUT chains            ; 124 / 1,143 ( 11 % )   ;
-; Local interconnects   ; 1,631 / 3,938 ( 41 % ) ;
-; R4s                   ; 1,078 / 2,832 ( 38 % ) ;
+; LAB clocks            ; 25 / 72 ( 35 % )       ;
+; LUT chains            ; 111 / 1,143 ( 10 % )   ;
+; Local interconnects   ; 1,677 / 3,938 ( 43 % ) ;
+; R4s                   ; 1,166 / 2,832 ( 41 % ) ;
 +-----------------------+------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Logic Elements                                                         ;
 +--------------------------------------------+-------------------------------+
-; Number of Logic Elements  (Average = 9.39) ; Number of LABs  (Total = 126) ;
+; Number of Logic Elements  (Average = 9.50) ; Number of LABs  (Total = 124) ;
 +--------------------------------------------+-------------------------------+
-; 1                                          ; 1                             ;
-; 2                                          ; 3                             ;
+; 1                                          ; 2                             ;
+; 2                                          ; 0                             ;
 ; 3                                          ; 0                             ;
-; 4                                          ; 2                             ;
-; 5                                          ; 0                             ;
-; 6                                          ; 2                             ;
-; 7                                          ; 0                             ;
-; 8                                          ; 6                             ;
-; 9                                          ; 12                            ;
-; 10                                         ; 100                           ;
+; 4                                          ; 1                             ;
+; 5                                          ; 1                             ;
+; 6                                          ; 1                             ;
+; 7                                          ; 3                             ;
+; 8                                          ; 7                             ;
+; 9                                          ; 6                             ;
+; 10                                         ; 103                           ;
 +--------------------------------------------+-------------------------------+
 
 
 +--------------------------------------------------------------------+
 ; LAB-wide Signals                                                   ;
 +------------------------------------+-------------------------------+
-; LAB-wide Signals  (Average = 1.14) ; Number of LABs  (Total = 126) ;
+; LAB-wide Signals  (Average = 1.14) ; Number of LABs  (Total = 124) ;
 +------------------------------------+-------------------------------+
 ; 1 Async. clear                     ; 3                             ;
-; 1 Clock                            ; 74                            ;
-; 1 Clock enable                     ; 35                            ;
+; 1 Clock                            ; 81                            ;
+; 1 Clock enable                     ; 30                            ;
 ; 1 Sync. clear                      ; 3                             ;
 ; 1 Sync. load                       ; 7                             ;
-; 2 Clock enables                    ; 9                             ;
-; 2 Clocks                           ; 13                            ;
+; 2 Clock enables                    ; 12                            ;
+; 2 Clocks                           ; 5                             ;
 +------------------------------------+-------------------------------+
 
 
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +---------------------------------------------+-------------------------------+
-; Number of Signals Sourced  (Average = 9.86) ; Number of LABs  (Total = 126) ;
+; Number of Signals Sourced  (Average = 9.98) ; Number of LABs  (Total = 124) ;
 +---------------------------------------------+-------------------------------+
 ; 0                                           ; 0                             ;
-; 1                                           ; 1                             ;
-; 2                                           ; 3                             ;
+; 1                                           ; 2                             ;
+; 2                                           ; 0                             ;
 ; 3                                           ; 0                             ;
-; 4                                           ; 2                             ;
+; 4                                           ; 1                             ;
 ; 5                                           ; 1                             ;
 ; 6                                           ; 3                             ;
-; 7                                           ; 2                             ;
+; 7                                           ; 4                             ;
 ; 8                                           ; 7                             ;
-; 9                                           ; 22                            ;
-; 10                                          ; 60                            ;
-; 11                                          ; 7                             ;
-; 12                                          ; 5                             ;
-; 13                                          ; 3                             ;
+; 9                                           ; 16                            ;
+; 10                                          ; 67                            ;
+; 11                                          ; 9                             ;
+; 12                                          ; 2                             ;
+; 13                                          ; 2                             ;
 ; 14                                          ; 2                             ;
-; 15                                          ; 2                             ;
+; 15                                          ; 1                             ;
 ; 16                                          ; 3                             ;
-; 17                                          ; 1                             ;
-; 18                                          ; 1                             ;
-; 19                                          ; 1                             ;
+; 17                                          ; 2                             ;
+; 18                                          ; 2                             ;
 +---------------------------------------------+-------------------------------+
 
 
 +---------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                         ;
 +-------------------------------------------------+-------------------------------+
-; Number of Signals Sourced Out  (Average = 6.49) ; Number of LABs  (Total = 126) ;
+; Number of Signals Sourced Out  (Average = 6.58) ; Number of LABs  (Total = 124) ;
 +-------------------------------------------------+-------------------------------+
 ; 0                                               ; 0                             ;
-; 1                                               ; 6                             ;
-; 2                                               ; 7                             ;
-; 3                                               ; 5                             ;
-; 4                                               ; 13                            ;
-; 5                                               ; 17                            ;
-; 6                                               ; 14                            ;
-; 7                                               ; 17                            ;
-; 8                                               ; 13                            ;
-; 9                                               ; 14                            ;
-; 10                                              ; 14                            ;
+; 1                                               ; 5                             ;
+; 2                                               ; 6                             ;
+; 3                                               ; 4                             ;
+; 4                                               ; 10                            ;
+; 5                                               ; 16                            ;
+; 6                                               ; 25                            ;
+; 7                                               ; 19                            ;
+; 8                                               ; 9                             ;
+; 9                                               ; 12                            ;
+; 10                                              ; 9                             ;
 ; 11                                              ; 2                             ;
-; 12                                              ; 2                             ;
-; 13                                              ; 1                             ;
-; 14                                              ; 1                             ;
+; 12                                              ; 3                             ;
+; 13                                              ; 2                             ;
+; 14                                              ; 0                             ;
+; 15                                              ; 2                             ;
 +-------------------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                          ;
 +----------------------------------------------+-------------------------------+
-; Number of Distinct Inputs  (Average = 11.92) ; Number of LABs  (Total = 126) ;
+; Number of Distinct Inputs  (Average = 12.17) ; Number of LABs  (Total = 124) ;
 +----------------------------------------------+-------------------------------+
 ; 0                                            ; 0                             ;
-; 1                                            ; 0                             ;
+; 1                                            ; 1                             ;
 ; 2                                            ; 2                             ;
-; 3                                            ; 6                             ;
-; 4                                            ; 3                             ;
+; 3                                            ; 2                             ;
+; 4                                            ; 4                             ;
 ; 5                                            ; 6                             ;
-; 6                                            ; 7                             ;
-; 7                                            ; 7                             ;
-; 8                                            ; 9                             ;
-; 9                                            ; 6                             ;
-; 10                                           ; 5                             ;
+; 6                                            ; 5                             ;
+; 7                                            ; 8                             ;
+; 8                                            ; 11                            ;
+; 9                                            ; 5                             ;
+; 10                                           ; 8                             ;
 ; 11                                           ; 12                            ;
-; 12                                           ; 12                            ;
-; 13                                           ; 3                             ;
-; 14                                           ; 8                             ;
+; 12                                           ; 9                             ;
+; 13                                           ; 7                             ;
+; 14                                           ; 4                             ;
 ; 15                                           ; 5                             ;
-; 16                                           ; 6                             ;
-; 17                                           ; 7                             ;
-; 18                                           ; 8                             ;
-; 19                                           ; 4                             ;
-; 20                                           ; 0                             ;
-; 21                                           ; 1                             ;
+; 16                                           ; 5                             ;
+; 17                                           ; 5                             ;
+; 18                                           ; 5                             ;
+; 19                                           ; 3                             ;
+; 20                                           ; 3                             ;
+; 21                                           ; 4                             ;
 ; 22                                           ; 2                             ;
 ; 23                                           ; 3                             ;
-; 24                                           ; 2                             ;
+; 24                                           ; 4                             ;
 ; 25                                           ; 0                             ;
-; 26                                           ; 2                             ;
+; 26                                           ; 1                             ;
 +----------------------------------------------+-------------------------------+
 
 
@@ -880,15 +878,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+--------------------------+
 
 
-+----------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Summary                                    ;
-+-----------------------------------+--------------------------+-------------------+
-; Source Clock(s)                   ; Destination Clock(s)     ; Delay Added in ns ;
-+-----------------------------------+--------------------------+-------------------+
-; clock                             ; main:inst14|cur_state[0] ; 20.5              ;
-; I/O                               ; clock                    ; 1.5               ;
-; clock,freqDiv_20:inst4|clktmp,I/O ; clock                    ; 1.0               ;
-+-----------------------------------+--------------------------+-------------------+
++----------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary                  ;
++-----------------+--------------------------+-------------------+
+; Source Clock(s) ; Destination Clock(s)     ; Delay Added in ns ;
++-----------------+--------------------------+-------------------+
+; clock           ; main:inst14|cur_state[0] ; 19.9              ;
++-----------------+--------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
@@ -898,21 +894,12 @@ This will disable optimization of problematic paths and expose them for further 
 +--------------------------+-------------------------------+-------------------+
 ; Source Register          ; Destination Register          ; Delay Added in ns ;
 +--------------------------+-------------------------------+-------------------+
-; main:inst14|cur_state[3] ; latticeDriver:inst30|col_g[7] ; 7.683             ;
-; main:inst14|cur_state[0] ; latticeDriver:inst30|col_g[7] ; 7.683             ;
-; main:inst14|cur_state[1] ; latticeDriver:inst30|col_g[7] ; 7.683             ;
-; main:inst14|cur_state[2] ; latticeDriver:inst30|col_g[7] ; 7.683             ;
-; clock                    ; main:inst14|cnt_b2            ; 1.579             ;
-; keyInput:inst|resetmp6   ; main:inst14|cnt_b2            ; 0.563             ;
-; keyInput:inst|resetmp5   ; main:inst14|cnt_b2            ; 0.563             ;
-; keyInput:inst|resetmp10  ; main:inst14|cnt_b4[0]         ; 0.231             ;
-; keyInput:inst|resetmp9   ; main:inst14|cnt_b4[0]         ; 0.231             ;
-; keyInput:inst|resetmp4   ; main:inst14|cnt_b1[0]         ; 0.192             ;
-; keyInput:inst|resetmp3   ; main:inst14|cnt_b1[0]         ; 0.192             ;
-; keyInput:inst|resetmp8   ; main:inst14|temp1[2]          ; 0.033             ;
-; keyInput:inst|resetmp7   ; main:inst14|temp1[2]          ; 0.033             ;
+; main:inst14|cur_state[3] ; latticeDriver:inst30|col_r[1] ; 7.213             ;
+; main:inst14|cur_state[0] ; latticeDriver:inst30|col_r[1] ; 7.213             ;
+; main:inst14|cur_state[1] ; latticeDriver:inst30|col_r[1] ; 7.213             ;
+; main:inst14|cur_state[2] ; latticeDriver:inst30|col_r[1] ; 7.213             ;
 +--------------------------+-------------------------------+-------------------+
-Note: This table only shows the top 13 path(s) that have the largest delay added for hold.
+Note: This table only shows the top 4 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -936,38 +923,37 @@ Critical Warning (332012): Synopsys Design Constraints File file not found: 'med
 Info (332144): No user constrained base clocks found in the design
 Info (332128): Timing requirements not specified -- optimizing circuit to achieve the following default global requirements
     Info (332127): Assuming a default timing requirement
-Info (332111): Found 7 clocks
+Info (332111): Found 13 clocks
     Info (332111):   Period   Clock Name
     Info (332111): ======== ============
     Info (332111):    1.000        clock
-    Info (332111):    1.000 freqDiv_20:inst4|clktmp
     Info (332111):    1.000 freqDiv_125:inst29|clktmp
     Info (332111):    1.000 freqDiv_250:inst28|clktmp
     Info (332111):    1.000 freqDiv_500:inst26|clktmp
     Info (332111):    1.000 freqDiv_1000:inst23|clktmp
+    Info (332111):    1.000 keyINput:inst|resetmp1
+    Info (332111):    1.000 keyINput:inst|resetmp3
+    Info (332111):    1.000 keyINput:inst|resetmp5
+    Info (332111):    1.000 keyINput:inst|resetmp7
+    Info (332111):    1.000 keyINput:inst|resetmp10
+    Info (332111):    1.000 keyINput:inst|resetmp11
+    Info (332111):    1.000 keyINput:inst|resetmp13
     Info (332111):    1.000 main:inst14|cur_state[0]
 Info (186079): Completed User Assigned Global Signals Promotion Operation
 Info (186216): Automatically promoted some destinations of signal "clock" to use Global clock in PIN 18
     Info (186217): Destination "LCD_EN" may be non-global or may not use global clock
-    Info (186217): Destination "buzzerDriver:inst31|buzz_out~0" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/buzzerDriver.vhd Line: 9
-    Info (186217): Destination "keyInput:inst|bout4" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/keyInput.vhd Line: 19
-    Info (186217): Destination "keyInput:inst|bout5" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/keyInput.vhd Line: 20
-    Info (186217): Destination "keyInput:inst|bout1" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/keyInput.vhd Line: 16
-    Info (186217): Destination "keyInput:inst|bout6" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/keyInput.vhd Line: 21
-    Info (186217): Destination "keyInput:inst|bout0" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/keyInput.vhd Line: 15
-    Info (186217): Destination "keyInput:inst|bout3" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/keyInput.vhd Line: 18
-    Info (186217): Destination "keyInput:inst|bout2" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/keyInput.vhd Line: 17
+    Info (186217): Destination "buzzerDriver:inst31|buzz_OUT~0" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/buzzerDriver.vhd Line: 9
 Info (186216): Automatically promoted some destinations of signal "freqDiv_250:inst28|clktmp" to use Global clock File: D:/works/FPGA/mediKitFPGA/freqDiv_250.vhd Line: 17
     Info (186217): Destination "freqDiv_250:inst28|clktmp" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/freqDiv_250.vhd Line: 17
 Info (186215): Automatically promoted signal "latticeDriver:inst30|col_r[5]~11" to use Global clock File: D:/works/FPGA/mediKitFPGA/latticeDriver.vhd Line: 67
-Info (186216): Automatically promoted some destinations of signal "freqDiv_20:inst4|clktmp" to use Global clock File: D:/works/FPGA/mediKitFPGA/freqDiv_20.vhd Line: 17
-    Info (186217): Destination "freqDiv_20:inst4|clktmp" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/freqDiv_20.vhd Line: 17
+Info (186216): Automatically promoted some destinations of signal "freqDiv_1000:inst23|clktmp" to use Global clock File: D:/works/FPGA/mediKitFPGA/freqDiv_1000.vhd Line: 18
+    Info (186217): Destination "freqDiv_1000:inst23|clktmp" may be non-global or may not use global clock File: D:/works/FPGA/mediKitFPGA/freqDiv_1000.vhd Line: 18
 Info (186079): Completed Auto Global Promotion Operation
 Info (176234): Starting register packing
 Info (186468): Started processing fast register assignments
 Info (186469): Finished processing fast register assignments
 Info (176235): Finished register packing
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
@@ -975,19 +961,19 @@ Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:03
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 30% of the available device resources
+Info (170195): Router estimated average interconnect usage is 32% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 32% of the available device resources in the region that extends from location X0_Y0 to location X8_Y11
 Info (170202): The Fitter performed an Auto Fit compilation.  No optimizations were skipped because the design's timing and routability requirements required full optimization.
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
-Info (11888): Total time spent on timing analysis during the Fitter is 1.13 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 1.31 seconds.
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file D:/works/FPGA/mediKitFPGA/output_files/mediKit.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 5775 megabytes
-    Info: Processing ended: Sun Dec 26 19:30:29 2021
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Processing ended: Mon Dec 27 21:27:01 2021
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:20
 
 
 +----------------------------+

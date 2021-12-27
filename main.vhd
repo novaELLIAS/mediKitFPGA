@@ -4,68 +4,68 @@ USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
 
 ENTITY main is
-	port(
-		clkin:in std_logic;
-		b0:in std_logic; -- btn
-		b1:in std_logic;
-		b2:in std_logic;
-		b3:in std_logic;
-		b4:in std_logic;
-		b5:in std_logic;
-		b6:in std_logic;
-		nums:in std_logic_vector(6 downto 0);
-		numb:in std_logic_vector(6 downto 0);
-		dis1:out std_logic_vector(6 downto 0);
-		dis2:out std_logic_vector(6 downto 0);
-		dis3:out std_logic_vector(6 downto 0);
-		dis4:out std_logic_vector(6 downto 0);
-		dis5:out std_logic_vector(6 downto 0);
-		dis6:out std_logic_vector(6 downto 0);
-		dis7:out std_logic_vector(6 downto 0);
-		dis8:out std_logic_vector(6 downto 0);
-		dis9:out std_logic_vector(6 downto 0);
-		dis10:out std_logic_vector(6 downto 0);
-		dis11:out std_logic_vector(6 downto 0);
-		dis12:out std_logic_vector(6 downto 0);
-		--seg_un:out integer range 0 to 1000000:=0;
-		seg_u1:out integer range 0 to 31;
-		seg_u2:out integer range 0 to 31;
-		seg_u3:out integer range 0 to 31;
-		--seg_un:out std_logic_vector(6 downto 0);
-		state_out:out std_logic_vector(3 downto 0)
+	PORT(
+		clkin:IN STD_LOGIC;
+		b0:IN STD_LOGIC; -- btn
+		b1:IN STD_LOGIC;
+		b2:IN STD_LOGIC;
+		b3:IN STD_LOGIC;
+		b4:IN STD_LOGIC;
+		b5:IN STD_LOGIC;
+		b6:IN STD_LOGIC;
+		nums:IN STD_LOGIC_VECTOR(6 downto 0);
+		numb:IN STD_LOGIC_VECTOR(6 downto 0);
+		dis1:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis2:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis3:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis4:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis5:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis6:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis7:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis8:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis9:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis10:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis11:OUT STD_LOGIC_VECTOR(6 downto 0);
+		dis12:OUT STD_LOGIC_VECTOR(6 downto 0);
+		--seg_un:OUT INTEGER range 0 to 1000000:=0;
+		seg_u1:OUT INTEGER range 0 to 31;
+		seg_u2:OUT INTEGER range 0 to 31;
+		seg_u3:OUT INTEGER range 0 to 31;
+		--seg_un:OUT STD_LOGIC_VECTOR(6 downto 0);
+		state_out:OUT STD_LOGIC_VECTOR(3 downto 0)
 	);
 END main;
 
 ARCHITECTURE behave of main is
-signal cnt_b0:integer range 0 to 15:=0;
-signal cnt_b1:integer range 0 to 2 :=0;
-signal cnt_b2:integer range 0 to 1 :=0;
-signal cnt_b4:integer range 0 to 2 :=0;
-signal cnt_b5:integer range 0 to 3 :=0;
-signal cnt_b6:integer range 0 to 1 :=0;
---signal cnt_un:integer range 0 to 999999:=0;
-signal cnt_u1:integer range 0 to 31:=0;
-signal cnt_u2:integer range 0 to 31:=0;
-signal cnt_u3:integer range 0 to 31:=0;
---signal cnt_un:std_logic_vector (6 downto 0):="000000";
-signal cur_state:std_logic_vector(3 downto 0):="0000";
-signal rs1:std_logic_vector(6 downto 0):="0000000";
-signal rs2:std_logic_vector(6 downto 0):="0000000";
-signal rb1:std_logic_vector(6 downto 0):="0000000";
-signal rb2:std_logic_vector(6 downto 0):="0000000";
-signal gs1:std_logic_vector(6 downto 0):="0000000";
-signal gs2:std_logic_vector(6 downto 0):="0000000";
-signal gb1:std_logic_vector(6 downto 0):="0000000";
-signal gb2:std_logic_vector(6 downto 0):="0000000";
-signal ys1:std_logic_vector(6 downto 0):="0000000";
-signal ys2:std_logic_vector(6 downto 0):="0000000";
-signal yb1:std_logic_vector(6 downto 0):="0000000";
-signal yb2:std_logic_vector(6 downto 0):="0000000";
-signal temp1:std_logic_vector(3 downto 0):="0000";
+SIGNAL cnt_b0:INTEGER range 0 to 15:=0;
+SIGNAL cnt_b1:INTEGER range 0 to 2 :=0;
+SIGNAL cnt_b2:INTEGER range 0 to 1 :=0;
+SIGNAL cnt_b4:INTEGER range 0 to 2 :=0;
+SIGNAL cnt_b5:INTEGER range 0 to 3 :=0;
+SIGNAL cnt_b6:INTEGER range 0 to 1 :=0;
+--SIGNAL cnt_un:INTEGER range 0 to 999999:=0;
+SIGNAL cnt_u1:INTEGER range 0 to 31:=0;
+SIGNAL cnt_u2:INTEGER range 0 to 31:=0;
+SIGNAL cnt_u3:INTEGER range 0 to 31:=0;
+--SIGNAL cnt_un:STD_LOGIC_VECTOR (6 downto 0):="000000";
+SIGNAL cur_state:STD_LOGIC_VECTOR(3 downto 0):="0000";
+SIGNAL rs1:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL rs2:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL rb1:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL rb2:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL gs1:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL gs2:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL gb1:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL gb2:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL ys1:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL ys2:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL yb1:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL yb2:STD_LOGIC_VECTOR(6 downto 0):="0000000";
+SIGNAL temp1:STD_LOGIC_VECTOR(3 downto 0):="0000";
 
 begin
  -- btn cnter --
-	process(b0)
+	PROCESS(b0)
 	begin
 	if(b0'event and b0 = '1')then
 	        if cnt_b0=15 then
@@ -74,9 +74,9 @@ begin
 			    cnt_b0<=cnt_b0+1;
 			end if;	
 	end if;
-	end process;
+	end PROCESS;
 	
-	process(b1)
+	PROCESS(b1)
 	begin
 	if((cnt_b0 mod 2)=0) then
 			cnt_b1<=0;
@@ -87,9 +87,9 @@ begin
 			    cnt_b1<=cnt_b1+1;
 			end if;	
 	end if;
-	end process;
+	end PROCESS;
 	
-	process(b4)
+	PROCESS(b4)
 	begin
 	if((cnt_b0 mod 2)=0) then
 			cnt_b4<=0;
@@ -100,22 +100,22 @@ begin
 			    cnt_b4<=cnt_b4+1;
 			end if;	
 	end if;
-	end process;
+	end PROCESS;
 	
-	process(b5)
+	PROCESS(b5)
 	begin
 	if((cnt_b0 mod 2)=0) then
-			cnt_b5<=0;
+		cnt_b5<=0;
 	elsif(b5'event and b5 = '1')then
-	        if cnt_b5=2 then
-				cnt_b5<=1;
-			else
-			    cnt_b5<=cnt_b5+1;
-			end if;	
+		if cnt_b5=2 then
+			cnt_b5<=1;
+		else
+			cnt_b5<=cnt_b5+1;
+		end if;	
 	end if;
-	end process;
+	end PROCESS;
 	
-	process(b2)
+	PROCESS(b2)
 	begin
 	if((cnt_b0 mod 2)=0) then
 			cnt_b2<=0;
@@ -126,9 +126,9 @@ begin
 			    cnt_b2<=cnt_b2+1;
 			end if;	
 	end if;
-	end process;
+	end PROCESS;
 	
-	process(b6)
+	PROCESS(b6)
 	begin
 	if((cnt_b0 mod 2)=0) then
 			cnt_b6<=0;
@@ -139,10 +139,10 @@ begin
 			    cnt_b6<=cnt_b6+1;
 			end if;	
 	end if;
-	end process;
+	end PROCESS;
 	
 
--- state machine status description:
+-- state machINe status description:
 -- standard group:
 -- 0010 :  2 : set first  time for R box
 -- 0011 :  3 : set first  time for B box
@@ -160,7 +160,7 @@ begin
 -- 1111 : 31 : set finish
 
 
-process(cur_state,clkin,cnt_b0,cnt_b1,cnt_b2,nums,numb,b3)
+PROCESS(cur_state,clkin,cnt_b0,cnt_b1,cnt_b2,nums,numb,b3)
 begin
 	if(clkin'event and clkin='1')then
 		case cur_state is
@@ -239,7 +239,7 @@ begin
 					cur_state<="0111"; cnt_u1<=cnt_u1+1;
 				elsif((nums=ys1 and numb=yb1)or(nums=ys2 and numb=yb2)) then
 					cur_state<="1000"; cnt_u1<=cnt_u1+1;
-				elsif(nums="1011111" and numb="1111110") then
+				elsif(nums="1011011" and numb="1111011") then
 					cur_state<="0101"; cnt_u1<=cnt_u1+1;
 				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000"; cnt_u1<=0; cnt_u2<=0; cnt_u3<=0;
@@ -253,7 +253,7 @@ begin
 					cur_state<="0110"; cnt_u2<=cnt_u2+1;
 				elsif((nums=ys1 and numb=yb1)or(nums=ys2 and numb=yb2)) then
 					cur_state<="1000"; cnt_u2<=cnt_u2+1;
-				elsif(nums="1011111" and numb="1111110") then
+				elsif(nums="1011011" and numb="1111011") then
 					cur_state<="0101"; cnt_u2<=cnt_u2+1;
 				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000"; cnt_u1<=0; cnt_u2<=0; cnt_u3<=0;
@@ -267,7 +267,7 @@ begin
 					cur_state<="0110"; cnt_u3<=cnt_u3+1;
 				elsif((nums=gs1 and numb=gb1)or(nums=gs2 and numb=gb2)) then
 					cur_state<="0111"; cnt_u3<=cnt_u3+1;
-				elsif(nums="1011111" and numb="1111110") then
+				elsif(nums="1011011" and numb="1111011") then
 					cur_state<="0101"; cnt_u3<=cnt_u3+1;
 				elsif((cnt_b0 mod 2)=0) then
 					cur_state<="0000"; cnt_u1<=0; cnt_u2<=0; cnt_u3<=0;
@@ -279,9 +279,9 @@ begin
 			when others=>null;
 		end case;
 	end if;
-end process;
+end PROCESS;
 
-process(b3,cur_state)
+PROCESS(b3,cur_state)
 begin
 	if(cur_state/="0110" and cur_state/="0111" and cur_state/="1000")then
 		temp1<="0000";
@@ -290,26 +290,7 @@ begin
 			temp1<="0101";
 		end if;
 	end if;
-end process;
-
---PROCESS (cur_state, clkin) begin
---	if (clkin'event and clkin='1') then
---		if(cur_state="0101" or cur_state="0110" or cur_state="0111" or cur_state="1000") then
---			case cnt_un is
---				when 0 => seg_un<="1111110";
---				when 1 => seg_un<="0110000";
---				when 2 => seg_un<="1101101";
---				when 3 => seg_un<="1111001";
---				when 4 => seg_un<="0110011";
---				when 5 => seg_un<="1011011";
---				when 6 => seg_un<="1011111";
---				when 7 => seg_un<="1110000";
---				when others=>NULL;
---			end case;
---		else seg_un <= "0000000";
---		end if;
---	end if;
---end process;
+end PROCESS;
 
 dis1 <= rs1;
 dis2 <= rb1;
@@ -330,9 +311,9 @@ seg_u1 <= cnt_u1;
 seg_u2 <= cnt_u2;
 seg_u3 <= cnt_u3;
 
--- user setup
+-- USEr setup
 
-process(cur_state,clkin)
+PROCESS(cur_state,clkin)
 begin
 	if(clkin'event and clkin='1')then
 		case cur_state is
@@ -364,7 +345,7 @@ begin
 			when others=>null;
 		end case;
 	end if;
-end process;	
+end PROCESS;	
 
 
 

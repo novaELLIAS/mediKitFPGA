@@ -1,33 +1,33 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity LCD1602driver is
-	Port(
-		LCD_Clk :   in std_logic;  
-		LCD_RS :    out std_logic; -- switch
-		LCD_RW :    out std_logic; -- LCD R/W
-		LCD_EN :    out std_logic; -- enable
-		lcd_data :  out std_logic_vector(7 downto 0);
-		YIMA_DATA1: in std_logic_vector(7 downto 0);
-		YIMA_DATA2: in std_logic_vector(7 downto 0);
-		YIMA_DATA3: in std_logic_vector(7 downto 0);
-		YIMA_DATA4: in std_logic_vector(7 downto 0);
-		YIMA_DATA5: in std_logic_vector(7 downto 0);
-		YIMA_DATA6: in std_logic_vector(7 downto 0);
-		YIMA_DATA7: in std_logic_vector(7 downto 0);
-		YIMA_DATA8: in std_logic_vector(7 downto 0);
-		YIMA_DATA9: in std_logic_vector(7 downto 0);
-		YIMA_DATA10:in std_logic_vector(7 downto 0);
-		YIMA_DATA11:in std_logic_vector(7 downto 0);
-		YIMA_DATA12:in std_logic_vector(7 downto 0)
+ENTITY LCD1602driver is
+	PORT(
+		LCD_Clk :   IN STD_LOGIC;  
+		LCD_RS :    OUT STD_LOGIC; -- switch
+		LCD_RW :    OUT STD_LOGIC; -- LCD R/W
+		LCD_EN :    OUT STD_LOGIC; -- enable
+		lcd_data :  OUT STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA1: IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA2: IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA3: IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA4: IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA5: IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA6: IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA7: IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA8: IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA9: IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA10:IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA11:IN STD_LOGIC_VECTOR(7 downto 0);
+		YIMA_DATA12:IN STD_LOGIC_VECTOR(7 downto 0)
 );
 end LCD1602driver;
-architecture a of LCD1602driver is
+ARCHITECTURE a of LCD1602driver is
   
-type ram is array(0 to 28) of std_logic_vector(7 downto 0);
-signal ram1:ram;
+type ram is array(0 to 28) of STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL ram1:ram;
 
 begin
 	LCD_EN <= LCD_Clk ;
@@ -46,8 +46,8 @@ begin
 	ram1(10)<=YIMA_DATA11;
 	ram1(11)<=YIMA_DATA12;
 	
-process(LCD_Clk)
-variable cnt :integer range 0 to 38;
+PROCESS(LCD_Clk)
+variable cnt :INTEGER range 0 to 38;
 begin
 
 if LCD_Clk'event and LCD_Clk = '1'then
@@ -102,5 +102,5 @@ when 37=>LCD_RS<='1';lcd_data<=ram1(11);
 when 38=>LCD_RS<='1';lcd_data<="10100000";
 end case;	  
              
-end process;
+end PROCESS;
 end a;

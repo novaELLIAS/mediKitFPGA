@@ -11,9 +11,9 @@ END freqDiv_125;
 ARCHITECTURE behave OF freqDiv_125 IS
 	SIGNAL tmp: INTEGER RANGE 0 TO 62;
 	SIGNAL clktmp: STD_LOGIC;
-	BEGIN
+	begin
 		PROCESS(clk)
-		BEGIN
+		begin
 			IF (clk'event AND clk='1') THEN
 				IF tmp=62 then
 					tmp<=0;clktmp<=NOT clktmp;
@@ -21,6 +21,6 @@ ARCHITECTURE behave OF freqDiv_125 IS
 					tmp<=tmp+1;
 				end if;
 			end if;
-		end process;
+		end PROCESS;
 	clk_out<=clktmp;
 end behave;

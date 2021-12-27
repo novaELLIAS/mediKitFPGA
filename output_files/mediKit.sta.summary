@@ -3,75 +3,163 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Setup 'clock'
-Slack : -22.481
-TNS   : -3328.999
-
-Type  : Setup 'freqDiv_1000:inst23|clktmp'
-Slack : -5.888
-TNS   : -34.706
+Slack : -23.540
+TNS   : -3355.892
 
 Type  : Setup 'freqDiv_250:inst28|clktmp'
-Slack : -4.444
-TNS   : -94.806
+Slack : -5.388
+TNS   : -150.765
+
+Type  : Setup 'freqDiv_1000:inst23|clktmp'
+Slack : -4.234
+TNS   : -25.267
 
 Type  : Setup 'main:inst14|cur_state[0]'
-Slack : -2.100
-TNS   : -16.073
+Slack : -2.096
+TNS   : -8.872
 
-Type  : Setup 'freqDiv_500:inst26|clktmp'
-Slack : -1.245
-TNS   : -1.245
+Type  : Setup 'keyINput:inst|resetmp13'
+Slack : -1.492
+TNS   : -1.492
+
+Type  : Setup 'keyINput:inst|resetmp11'
+Slack : -1.302
+TNS   : -2.602
+
+Type  : Setup 'keyINput:inst|resetmp1'
+Slack : -1.238
+TNS   : -1.238
+
+Type  : Setup 'keyINput:inst|resetmp3'
+Slack : -1.235
+TNS   : -2.468
+
+Type  : Setup 'keyINput:inst|resetmp10'
+Slack : -1.233
+TNS   : -2.464
 
 Type  : Setup 'freqDiv_125:inst29|clktmp'
-Slack : -1.223
-TNS   : -1.223
+Slack : -1.231
+TNS   : -1.231
+
+Type  : Setup 'freqDiv_500:inst26|clktmp'
+Slack : -1.231
+TNS   : -1.231
+
+Type  : Setup 'keyINput:inst|resetmp5'
+Slack : -1.203
+TNS   : -1.203
 
 Type  : Hold 'main:inst14|cur_state[0]'
-Slack : -6.968
-TNS   : -29.012
+Slack : -5.471
+TNS   : -31.341
 
 Type  : Hold 'clock'
-Slack : -2.297
-TNS   : -10.715
+Slack : -2.410
+TNS   : -16.239
 
 Type  : Hold 'freqDiv_250:inst28|clktmp'
-Slack : -0.493
-TNS   : -0.493
+Slack : -2.077
+TNS   : -2.077
 
 Type  : Hold 'freqDiv_1000:inst23|clktmp'
-Slack : 0.709
+Slack : 0.814
+TNS   : 0.000
+
+Type  : Hold 'keyINput:inst|resetmp10'
+Slack : 1.078
+TNS   : 0.000
+
+Type  : Hold 'keyINput:inst|resetmp11'
+Slack : 1.078
+TNS   : 0.000
+
+Type  : Hold 'keyINput:inst|resetmp3'
+Slack : 1.078
+TNS   : 0.000
+
+Type  : Hold 'keyINput:inst|resetmp5'
+Slack : 1.649
 TNS   : 0.000
 
 Type  : Hold 'freqDiv_125:inst29|clktmp'
-Slack : 1.669
+Slack : 1.677
 TNS   : 0.000
 
 Type  : Hold 'freqDiv_500:inst26|clktmp'
-Slack : 1.691
+Slack : 1.677
+TNS   : 0.000
+
+Type  : Hold 'keyINput:inst|resetmp1'
+Slack : 1.684
+TNS   : 0.000
+
+Type  : Hold 'keyINput:inst|resetmp13'
+Slack : 1.938
 TNS   : 0.000
 
 Type  : Recovery 'freqDiv_1000:inst23|clktmp'
-Slack : -8.677
-TNS   : -52.062
+Slack : -7.544
+TNS   : -45.264
 
-Type  : Recovery 'clock'
-Slack : -3.254
-TNS   : -23.873
+Type  : Recovery 'keyINput:inst|resetmp7'
+Slack : -6.100
+TNS   : -6.100
+
+Type  : Recovery 'keyINput:inst|resetmp11'
+Slack : -4.904
+TNS   : -9.808
+
+Type  : Recovery 'keyINput:inst|resetmp10'
+Slack : -4.704
+TNS   : -9.408
+
+Type  : Recovery 'keyINput:inst|resetmp5'
+Slack : -4.574
+TNS   : -4.574
+
+Type  : Recovery 'keyINput:inst|resetmp3'
+Slack : -3.335
+TNS   : -6.670
+
+Type  : Recovery 'keyINput:inst|resetmp13'
+Slack : -3.026
+TNS   : -3.026
 
 Type  : Recovery 'main:inst14|cur_state[0]'
-Slack : -0.269
-TNS   : -0.443
+Slack : -1.696
+TNS   : -4.213
 
 Type  : Removal 'main:inst14|cur_state[0]'
-Slack : -5.668
-TNS   : -16.617
+Slack : -5.809
+TNS   : -15.660
 
-Type  : Removal 'clock'
-Slack : -1.055
-TNS   : -1.055
+Type  : Removal 'keyINput:inst|resetmp7'
+Slack : 1.070
+TNS   : 0.000
 
 Type  : Removal 'freqDiv_1000:inst23|clktmp'
-Slack : 3.467
+Slack : 3.227
+TNS   : 0.000
+
+Type  : Removal 'keyINput:inst|resetmp13'
+Slack : 3.472
+TNS   : 0.000
+
+Type  : Removal 'keyINput:inst|resetmp3'
+Slack : 3.781
+TNS   : 0.000
+
+Type  : Removal 'keyINput:inst|resetmp5'
+Slack : 5.020
+TNS   : 0.000
+
+Type  : Removal 'keyINput:inst|resetmp10'
+Slack : 5.150
+TNS   : 0.000
+
+Type  : Removal 'keyINput:inst|resetmp11'
+Slack : 5.350
 TNS   : 0.000
 
 Type  : Minimum Pulse Width 'clock'
@@ -79,8 +167,8 @@ Slack : -2.289
 TNS   : -2.289
 
 Type  : Minimum Pulse Width 'main:inst14|cur_state[0]'
-Slack : -0.728
-TNS   : -24.752
+Slack : -0.443
+TNS   : -15.062
 
 Type  : Minimum Pulse Width 'freqDiv_1000:inst23|clktmp'
 Slack : 0.234
@@ -90,15 +178,39 @@ Type  : Minimum Pulse Width 'freqDiv_125:inst29|clktmp'
 Slack : 0.234
 TNS   : 0.000
 
-Type  : Minimum Pulse Width 'freqDiv_20:inst4|clktmp'
-Slack : 0.234
-TNS   : 0.000
-
 Type  : Minimum Pulse Width 'freqDiv_250:inst28|clktmp'
 Slack : 0.234
 TNS   : 0.000
 
 Type  : Minimum Pulse Width 'freqDiv_500:inst26|clktmp'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'keyINput:inst|resetmp1'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'keyINput:inst|resetmp10'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'keyINput:inst|resetmp11'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'keyINput:inst|resetmp13'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'keyINput:inst|resetmp3'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'keyINput:inst|resetmp5'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'keyINput:inst|resetmp7'
 Slack : 0.234
 TNS   : 0.000
 
